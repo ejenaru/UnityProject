@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerTOP : MonoBehaviour
 {
     public int life;
     public int score;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
             score++;
             //añadir sonido de moneda
             Destroy(other.gameObject);
-
+            
         }
         
     }

@@ -57,13 +57,6 @@ public class PlayerControllerFRONT : MonoBehaviour
         
     }
 
-
-
-
-
-
-
-
     //esta función hace que el personaje se mueva en horizontal
     public void Movement() //and animation
     {
@@ -77,19 +70,29 @@ public class PlayerControllerFRONT : MonoBehaviour
         float shootV = Input.GetAxis("VerticalShoot");
         bool canIShoot = timeNow - timeLastShoot > cadency;
         Vector2 direction;
-        //si disparo para los lados y puedo disparar por la cadencia
-        if (shootH != 0 && canIShoot)
+        if (canIShoot) //para la cadencia
         {
-            // Si estoy en el suelo y disparo parriba OR estoy en el techo y disparo pabajo le doy la dirección en V
-            if (isGravityPositive == ((shootV > 0) || shootV == 0)) 
+            //entra si disparo en horizontal y vertical es 0
+            if ((shootV == 0 && shootH != 0) ||
+                // entra si estoy en suelo y disparo para arriba
+                (isGravityPositive && shootV > 0) ||
+                // entra si estoy en techo y disparo para abajo
+                (!isGravityPositive && shootV < 0))
+            {
+                //dispara en horizontal
                 direction = new Vector2(shootH, shootV).normalized;
-            
-            else //cuando disparo en contra de la gravedad Y disparo , le doy SOLO la dirección de H para que no deje de disparar
+                GameObject bullet = Instantiate(bulletToShoot, transform.position, transform.rotation);
+                bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                timeLastShoot = Time.time;
+            }
+            else if ((isGravityPositive && shootV < 0 && shootH != 0) ||
+                    (!isGravityPositive && shootV > 0 && shootH != 0))
+            {
                 direction = new Vector2(shootH, 0).normalized;
-
-            GameObject bullet = Instantiate(bulletToShoot, transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
-            timeLastShoot = Time.time;
+                GameObject bullet = Instantiate(bulletToShoot, transform.position, transform.rotation);
+                bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                timeLastShoot = Time.time;
+            }
         }
     }
 

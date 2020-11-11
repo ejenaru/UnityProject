@@ -26,7 +26,7 @@ public class PlayerControllerTOP : MonoBehaviour
     {
         timeNow = Time.time;
         Movement();
-        //Shoot();
+        ShootTop();
         // arreglar colision con propia bullet
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -91,25 +91,24 @@ public class PlayerControllerTOP : MonoBehaviour
             GetComponent<Animator>().SetBool("IsWalkingDown", false);
         }
     }
-    public void Shoot()
+    public void ShootTop()
     {
         float shootH = Input.GetAxis("HorizontalShoot");
         float shootV = Input.GetAxis("VerticalShoot");
-        if (shootH != 0 && timeNow - timeLastShoot > cadency)
-        {
-            GameObject bullet_ = Instantiate(bullet, transform.position, transform.rotation);
-            Vector2 direction = new Vector2(shootH, 0).normalized;
+        bool canIShoot = timeNow - timeLastShoot > cadency;
 
-            timeLastShoot = Time.time;
-            bullet_.GetComponent<Rigidbody2D>().velocity = direction * force;
+        if (canIShoot)
+        {
+            if (shootH != 0 || shootV != 0)
+            {
+                GameObject bullet_ = Instantiate(bullet, transform.position, transform.rotation);
+                Vector2 direction = new Vector2(shootH, shootV).normalized;
+                timeLastShoot = Time.time;
+                bullet_.GetComponent<Rigidbody2D>().velocity = direction * force;
+
+            }
             
         }
-        if (shootV != 0 && timeNow - timeLastShoot > cadency)
-        {
-            GameObject bullet_ = Instantiate(bullet, transform.position, transform.rotation);
-            Vector2 direction = new Vector2(0, shootV).normalized;
-            timeLastShoot = Time.time;
-            bullet_.GetComponent<Rigidbody2D>().velocity = direction * force;
-        }
+        
     }
 }

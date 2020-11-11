@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     {
         currentScene = SceneManager.GetActiveScene().buildIndex; //devuelve en nº de escena y lo guarda 
+        //hacer aqui una tansicion a negro y despues cargar la escena
 
         SceneManager.LoadScene(sceneToLoad);
 

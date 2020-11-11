@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class CameraFollowFRONT : MonoBehaviour
 {
-    public int maxValue;
-
     // Start is called before the first frame update
     void Start()
     {

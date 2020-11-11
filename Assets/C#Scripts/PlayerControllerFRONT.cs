@@ -93,6 +93,7 @@ public class PlayerControllerFRONT : MonoBehaviour
                 bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
                 timeLastShoot = Time.time;
             }
+            
         }
     }
 

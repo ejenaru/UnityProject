@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControllerTOP : MonoBehaviour
 {
-    public int life;
+    public int life = 8; //4 corazones de vida
     public int score;
     public float speed = 10;
 
@@ -18,7 +18,7 @@ public class PlayerControllerTOP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        
     }
 
     // Update is called once per frame
@@ -29,24 +29,7 @@ public class PlayerControllerTOP : MonoBehaviour
         ShootTop();
         // arreglar colision con propia bullet
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("bullet"))
-        {
-            other.isTrigger = false;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("coin"))
-        {
-            score++;
-            //añadir sonido de moneda
-            Destroy(other.gameObject);
-            
-        }
-        
-    }
+    
     public void Movement() //and animation
     {
         float movH = Input.GetAxis("Horizontal");

@@ -38,7 +38,7 @@ public class CameraFollowTOP : MonoBehaviour
             // move sprite towards the target location
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
             transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-
+            
         } 
     }
 

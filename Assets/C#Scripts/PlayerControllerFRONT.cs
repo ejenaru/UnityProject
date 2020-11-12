@@ -100,7 +100,7 @@ public class PlayerControllerFRONT : MonoBehaviour
     //esta función CAMBIA la direccion de la gravedad del personaje que lo lleva 
     public void ChangeGravity() 
     {
-        rigidBod.gravityScale *= -1;
+        rigidBod.gravityScale *= -1; //cambiar el signo
         //devuelve un booleano diciendo si la gravedad está activa o no, puede servir más adelante para darle la vuelta a la animación cuando esté boca abajo o para disparar
         isGravityPositive = !isGravityPositive;
         canIChangeGravity = false;

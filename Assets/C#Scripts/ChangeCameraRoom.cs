@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeCameraRoom : MonoBehaviour
 {
     public Vector2 DestinationRoom;
-
+    //Este script lo lleva el trigger de la puerta
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class ChangeCameraRoom : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Camera.main.GetComponent<CameraFollowTOP>().SetDestination(DestinationRoom);
+            Camera.main.GetComponent<CameraFollowTOP>().SetDestination(DestinationRoom);//A esta funcion quiero darle un número. El número de la habitación a la que vaya
         }   
     }
 }

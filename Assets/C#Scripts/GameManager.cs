@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager manager; //static para poder acceder a ella sin necesidad de crear un objeto.
     private int currentScene;
+    //Se puede guardar en un array los nombres de las escenas.
+    public string[] scenes;
     // Start is called before the first frame update
     void Awake()
     {
-        manager = this;
+        manager = this; //singletone
         currentScene = 0;
     }
 
@@ -26,6 +28,9 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int sceneToLoad) //Función a la que debemos INDICAR mediante un INT el nº de escena que queremos cargar
 
     {
+
+        //aqui hacemos el fade para la pantalla de carga.
+
         currentScene = SceneManager.GetActiveScene().buildIndex; //devuelve en nº de escena y lo guarda 
         //hacer aqui una tansicion a negro y despues cargar la escena
 
@@ -42,7 +47,11 @@ public class GameManager : MonoBehaviour
     }
     public void Quit()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
-    #endregion
+#endregion
 }

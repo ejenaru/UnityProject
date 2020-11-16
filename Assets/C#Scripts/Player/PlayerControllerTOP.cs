@@ -32,8 +32,8 @@ public class PlayerControllerTOP : MonoBehaviour
     void Update()
     {
         //----INPUTS----
-        movH = Input.GetAxis("Horizontal");
-        movV = Input.GetAxis("Vertical");
+        movH = Input.GetAxisRaw("Horizontal");
+        movV = Input.GetAxisRaw("Vertical");
         shootH = Input.GetAxis("HorizontalShoot");
         shootV = Input.GetAxis("VerticalShoot");
 
@@ -42,6 +42,7 @@ public class PlayerControllerTOP : MonoBehaviour
 
         //----Funtions----
         Movement(movH, movV);
+        Animation(movH, movV);
         ShootTop(bullet, shootH, shootV);
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -50,23 +51,24 @@ public class PlayerControllerTOP : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet")) other.isTrigger = false; 
     }
 
-    public void Movement(float _movH, float _movV) //and animation
+    public void Movement(float _movH, float _movV)
     {
         transform.Translate(transform.right * _movH * Time.deltaTime * speed);
-        
         transform.Translate(transform.up * _movV * Time.deltaTime * speed);
-
+    }
+    public void Animation(float _movH, float _movV)
+    {
         if (_movH != 0)
         {
             anim.SetBool("IsWalkingH", true);
 
             if (_movH > 0)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                GetComponent<SpriteRenderer>().flipX = true;
             }
             else if (_movH < 0)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                GetComponent<SpriteRenderer>().flipX = false;
             }
         }
         else anim.SetBool("IsWalkingH", false);

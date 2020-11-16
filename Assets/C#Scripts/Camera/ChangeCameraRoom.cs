@@ -26,9 +26,9 @@ public class ChangeCameraRoom : MonoBehaviour
         destinationPlayer = new Vector3(distanceMovePlayer * horizontalDir, distanceMovePlayer * verticalDir);
         camFollow = Camera.main.GetComponent<CameraFollowTOP>();
         player = GameManager.manager.player;
+        this.GetComponent<Collider2D>().isTrigger = !keyRequired;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -39,7 +39,7 @@ public class ChangeCameraRoom : MonoBehaviour
         //si esta puerta requiere una llave
         if (keyRequired && other.gameObject.CompareTag("Player")) 
         {
-            //mira si mi player tiene 
+            //mira si mi player tiene en el inventario llaves
             if (GameManager.manager.loot.keyNumber > 0)
             {
                 GameManager.manager.loot.keyNumber -= 1;

@@ -1,97 +1,100 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Este script lo lleva el player que se ve desde arriba
+[RequireComponent(typeof(Animator))]
 public class PlayerControllerTOP : MonoBehaviour
 {
-    public int life = 8; //4 corazones de vida
-    public int score;
+    //-----MOVEMENT---
     public float speed = 10;
+    float movH;
+    float movV;
+
+    //-----SHOOT-----
+    float shootH;
+    float shootV;
 
     public GameObject bullet;
-
     float timeNow;
     float timeLastShoot;
     public float cadency = 2;
     public float force;
 
-    // Start is called before the first frame update
-    void Start()
+    //-------Animator-----
+    private Animator anim;
+
+    
+    void Awake()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        timeNow = Time.time;
-        Movement();
-        ShootTop();
-        // arreglar colision con propia bullet
-    }
-    
-    public void Movement() //and animation
-    {
-        float movH = Input.GetAxis("Horizontal");
-        transform.Translate(transform.right * movH * Time.deltaTime * speed);
-        float movV = Input.GetAxis("Vertical");
-        transform.Translate(transform.up * movV * Time.deltaTime * speed);
+        //----INPUTS----
+        movH = Input.GetAxis("Horizontal");
+        movV = Input.GetAxis("Vertical");
+        shootH = Input.GetAxis("HorizontalShoot");
+        shootV = Input.GetAxis("VerticalShoot");
 
-        if (movH != 0)
+        //---Time related--
+        timeNow = Time.time;
+
+        //----Funtions----
+        Movement(movH, movV);
+        ShootTop(bullet, shootH, shootV);
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        //Las balas por defecto son Trigger para no mover al personaje, cuando salen del personaje son colliders
+        if (other.gameObject.CompareTag("Bullet")) other.isTrigger = false; 
+    }
+
+    public void Movement(float _movH, float _movV) //and animation
+    {
+        transform.Translate(transform.right * _movH * Time.deltaTime * speed);
+        
+        transform.Translate(transform.up * _movV * Time.deltaTime * speed);
+
+        if (_movH != 0)
         {
-            GetComponent<Animator>().SetBool("IsWalkingH", true);
-            if (movH > 0)
+            anim.SetBool("IsWalkingH", true);
+
+            if (_movH > 0)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
             }
-            else if (movH < 0)
+            else if (_movH < 0)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
+        }
+        else anim.SetBool("IsWalkingH", false);
 
+        if (_movV != 0)
+        {
+            if (_movV > 0) anim.SetBool("IsWalkingUp", true);
+            else if (_movV < 0) anim.SetBool("IsWalkingDown", true);
         }
         else
         {
-            GetComponent<Animator>().SetBool("IsWalkingH", false);
-        }
-        if (movV != 0)
-        {
-
-            if (movV > 0)
-            {
-                GetComponent<Animator>().SetBool("IsWalkingUp", true);
-            }
-            else if (movV < 0)
-            {
-                GetComponent<Animator>().SetBool("IsWalkingDown", true);
-            }
-
-
-        }
-        else
-        {
-            GetComponent<Animator>().SetBool("IsWalkingUp", false);
-            GetComponent<Animator>().SetBool("IsWalkingDown", false);
+            anim.SetBool("IsWalkingUp", false);
+            anim.SetBool("IsWalkingDown", false);
         }
     }
-    public void ShootTop()
+    public void ShootTop(GameObject bulletToShoot,float _shootH, float _shootV)
     {
-        float shootH = Input.GetAxis("HorizontalShoot");
-        float shootV = Input.GetAxis("VerticalShoot");
         bool canIShoot = timeNow - timeLastShoot > cadency;
 
         if (canIShoot)
         {
-            if (shootH != 0 || shootV != 0)
-            {
-                GameObject bullet_ = Instantiate(bullet, transform.position, transform.rotation);
+            if (_shootH != 0 || _shootV != 0)
+            {//aqui hay que hacer un pool
+                GameObject bullet_ = Instantiate(bulletToShoot, transform.position, transform.rotation);
                 Vector2 direction = new Vector2(shootH, shootV).normalized;
                 timeLastShoot = Time.time;
                 bullet_.GetComponent<Rigidbody2D>().velocity = direction * force;
-
             }
-            
-        }
-        
+        } 
     }
 }

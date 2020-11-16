@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerControllerFRONT : MonoBehaviour 
 {
-   //-------------MOVEMENT-------------
+    //-------------MOVEMENT-------------
+    float movH;
     public float speed = 10;
+    public bool isGravityPositive = true; //Aqui guardamos si la gravedad está activada o no
+    public bool canIChangeGravity; // Aquí guardamos true si estamos tocando el suelo, porque no queremos poder "volar"
 
     //------------SHOOT---------------
+    float shootH;
+    float shootV;
 
     public GameObject bullet;
 
@@ -18,10 +23,6 @@ public class PlayerControllerFRONT : MonoBehaviour
 
     public Rigidbody2D rigidBod; // el rigidbody guardado.
 
-    public bool isGravityPositive = true; //Aqui guardamos si la gravedad está activada o no
-    public bool canIChangeGravity; // Aquí guardamos true si estamos tocando el suelo, porque no queremos poder "volar"
-
-    // Start is called before the first frame update
     void Start()
     {
         rigidBod = GetComponent<Rigidbody2D>();
@@ -29,14 +30,20 @@ public class PlayerControllerFRONT : MonoBehaviour
 
     void Update()
     {
+        //---INPUTS---
+        movH = Input.GetAxis("Horizontal");
+        shootH = Input.GetAxis("HorizontalShoot");
+        shootV = Input.GetAxis("VerticalShoot");
+        //----TIME related----
         timeNow = Time.time;
+        //----Funtions----
         if (Input.GetButtonDown("Jump") && canIChangeGravity) ChangeGravity(); 
-        Movement();
+        Movement(movH);
         ShootFront(bullet);
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "scenario") canIChangeGravity = true;
+        if (other.gameObject.tag == "Scenario") canIChangeGravity = true;
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -58,16 +65,15 @@ public class PlayerControllerFRONT : MonoBehaviour
     }
 
     //esta función hace que el personaje se mueva en horizontal
-    public void Movement() //and animation
+    public void Movement(float _movH) //and animation
     {
-        float movH = Input.GetAxis("Horizontal");
-        transform.Translate(transform.right * movH * Time.deltaTime * speed);
+        
+        transform.Translate(transform.right * _movH * Time.deltaTime * speed);
     }
     //esta función hace que el personaje DISPARE en horizontal y vertical con las teclas de movimiento.
     public void ShootFront(GameObject bulletToShoot)
     {
-        float shootH = Input.GetAxis("HorizontalShoot");
-        float shootV = Input.GetAxis("VerticalShoot");
+        
         bool canIShoot = timeNow - timeLastShoot > cadency;
         Vector2 direction;
         if (canIShoot) //para la cadencia
@@ -101,7 +107,8 @@ public class PlayerControllerFRONT : MonoBehaviour
     public void ChangeGravity() 
     {
         rigidBod.gravityScale *= -1; //cambiar el signo
-        //devuelve un booleano diciendo si la gravedad está activa o no, puede servir más adelante para darle la vuelta a la animación cuando esté boca abajo o para disparar
+        //devuelve un booleano diciendo si la gravedad está activa o no, puede servir más adelante para darle la vuelta a la animación 
+        //cuando esté boca abajo o para disparar
         isGravityPositive = !isGravityPositive;
         canIChangeGravity = false;
     }

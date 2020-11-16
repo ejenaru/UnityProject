@@ -18,28 +18,24 @@ public class CameraFollowTOP : MonoBehaviour
     {
         CameraMustChange = false;
     }
-
-    public void SetDestination(Vector2 room) {
-        targetPosition = room;
-        CameraMustChange = true;
-    }
-    //public void GetDestination() { }
-
-
-
-
     void Update()
     {
-        if (CameraMustChange)
-        {
-
-            float step = speed * Time.deltaTime;
-
-            // move sprite towards the target location
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-            transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-            
-        } 
+        if (CameraMustChange) ChangeCameraPostion();
+         
     }
+    public void SetPosition(GameObject room) //
+    {
+        Vector3 roomVector = room.transform.position;
+        targetPosition = roomVector; //poner aqui SOLO la posición en x e y de la room
+        CameraMustChange = true;
+    }
+    
+    public void ChangeCameraPostion()
+    {
+        float step = speed * Time.deltaTime;
 
+        // move sprite towards the target location
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+        transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+    }
 }

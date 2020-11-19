@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CameraFollowFRONT : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform playerPosition;
+    float smooth;
+    private Vector3 offset;
     void Start()
     {
-        
+        playerPosition = GameManager.manager.player.transform;
+        offset = transform.position - playerPosition.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        transform.position = playerPosition.transform.position + offset;
     }
 }

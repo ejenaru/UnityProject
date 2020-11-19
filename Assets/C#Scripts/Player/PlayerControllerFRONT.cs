@@ -43,14 +43,12 @@ public class PlayerControllerFRONT : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
+        //--Gravity--
         if (other.gameObject.tag == "Scenario") canIChangeGravity = true;
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("bullet"))
-        {
-            other.isTrigger = false;
-        }
+        if (other.CompareTag("bullet")) other.isTrigger = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

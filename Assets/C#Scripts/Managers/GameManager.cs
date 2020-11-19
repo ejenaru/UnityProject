@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         manager = this; //singletone
+        DontDestroyOnLoad(this.gameObject);
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
         player = GameObject.FindWithTag("Player");
         currentScene = 0;

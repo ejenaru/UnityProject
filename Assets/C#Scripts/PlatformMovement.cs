@@ -17,7 +17,7 @@ public class PlatformMovement : MonoBehaviour
         
         initialPosition = this.gameObject.transform.position;
         distance = finalPosition.position.x - initialPosition.x;
-        StartCoroutine(Move());
+       // StartCoroutine(Move());
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class PlatformMovement : MonoBehaviour
         //if (Input.GetButtonDown("Jump")) StartCoroutine(Move());
         //if (Input.GetButtonDown("Jump")) this.gameObject.transform.position = new Vector3(initialPosition.x + (Mathf.PingPong(Time.time * speed, distance)), initialPosition.y, initialPosition.z);
 
-        //this.gameObject.transform.position = new Vector3(initialPosition.x  + (Mathf.PingPong(Time.time * speed, distance)), initialPosition.y, initialPosition.z);
+        this.gameObject.transform.position = new Vector3(initialPosition.x  + (Mathf.PingPong(Time.time * speed, distance)), initialPosition.y, initialPosition.z);
         //PingPong es una función que en realidad es una minicorrutina. Devuelve 
         //También se pued ehacer con el movetowards
 

@@ -6,11 +6,19 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public AudioSource audioSource;
+    AudioSource audioSource;
     public AudioClip volumenPrueba;
-    public Slider sliderVolume;
+    public GameObject sliderVolume;
 
 
+    private void Start()
+    {
+        LoadPlayerPrefs();
+        audioSource = GetComponent<AudioSource>();
+    }
+    private void Update()
+    {
+    }
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -21,10 +29,28 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ChangeVolume()
+    public void PlayVolume()
     {
+        sliderVolume.SetActive(true);
         audioSource.clip = volumenPrueba;
         audioSource.Play();
-        audioSource.volume = sliderVolume.value;
+    }
+    public void ChangeVolumen(float volume)
+    {
+        audioSource.volume = volume;
+        SavePlayerPrefs(volume);
+    }
+
+    public void SavePlayerPrefs(float volume)
+    {
+        PlayerPrefs.SetFloat("VolumenGeneral", volume);
+        PlayerPrefs.Save();
+    }
+    public void LoadPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey("VolumenGeneral"))
+        {
+            AudioListener.volume = PlayerPrefs.GetFloat("VolumenGeneral");
+        }
     }
 }

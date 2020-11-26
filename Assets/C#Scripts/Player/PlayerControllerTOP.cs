@@ -34,34 +34,51 @@ public class PlayerControllerTOP : MonoBehaviour
     void Update()
     {
         //----INPUTS----
-        
-        movH = Input.GetAxisRaw("Horizontal");
-        movV = Input.GetAxisRaw("Vertical");
-        shootH = Input.GetAxis("HorizontalShoot");
-        shootV = Input.GetAxis("VerticalShoot");
+        if (GameManager.manager.GetGamePause() == false)
+        {
+            movH = Input.GetAxisRaw("Horizontal");
+            movV = Input.GetAxisRaw("Vertical");
+            shootH = Input.GetAxis("HorizontalShoot");
+            shootV = Input.GetAxis("VerticalShoot");
 
-        //---Time related--
-        timeNow = Time.time;
+            //---Time related--
+            timeNow = Time.time;
 
-        //----Funtions----
-        Movement(movH, movV);
-        Animation(movH, movV);
-        ShootTop(bullet, shootH, shootV);
+            //----Funtions----
+            Movement(movH, movV);
+            Animation(movH, movV);
+            ShootTop(bullet, shootH, shootV);
+
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameManager.manager.SetGamePause();
+        }
+
+
     }
 
     public void Movement(float _movH, float _movV)
     {
-        
-        rigidBod.position += new Vector2(0, _movV * Time.deltaTime * speed);
-        rigidBod.position += new Vector2(_movH * Time.deltaTime * speed,0);
+
+        //rigidBod.position += new Vector2(0, _movV * Time.deltaTime * speed);
+        //rigidBod.position += new Vector2(_movH * Time.deltaTime * speed,0);
+
+        //Debug.Log("parametros de movimiento: " + _movH + " ||| " + _movV);
+
+        transform.Translate(transform.right * _movH * Time.deltaTime * speed);
+        transform.Translate(transform.up * _movV * Time.deltaTime * speed);
 
 
-        //transform.Translate(transform.right * _movH * Time.deltaTime * speed);
-        //transform.Translate(transform.up * _movV * Time.deltaTime * speed);
     }
     public void Animation(float _movH, float _movV)
     {
-        if (_movH != 0)
+        //if (_movV>0) { moveUp = true; }
+
+        /*if (_movH != 0)
         {
             anim.SetBool("IsWalkingH", true);
 
@@ -85,7 +102,10 @@ public class PlayerControllerTOP : MonoBehaviour
         {
             anim.SetBool("IsWalkingUp", false);
             anim.SetBool("IsWalkingDown", false);
-        }
+        }*/
+
+        anim.SetFloat("movH", _movH);
+        anim.SetFloat("movV", _movV);
     }
     public void ShootTop(GameObject bulletToShoot,float _shootH, float _shootV)
     {

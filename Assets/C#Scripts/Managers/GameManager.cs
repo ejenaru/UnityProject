@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public Pooler pool;
     private int currentScene;
 
+    //variables de estado 
+    private bool gamePause = false;
+    public GameObject pauseCanvas;
+    public GameObject canvas;
+    GameObject pauseObject = null;
 
     public Text keyText;
 
@@ -26,8 +31,10 @@ public class GameManager : MonoBehaviour
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
         player = GameObject.FindWithTag("Player");
         currentScene = 0;
-        keyText = GameObject.Find("KeyText").GetComponent<Text>();
+        //keyText = GameObject.Find("KeyText").GetComponent<Text>();
+        
     }
+    
     void Start() //esto tiene que ir en start porque si no no encuentra el loot, que se asigna en awake no se si estará bien o me dará mas fallos
     {
         loot = LootManager.loot;
@@ -69,4 +76,28 @@ public class GameManager : MonoBehaviour
 #endif
     }
 #endregion
+
+
+
+    public void SetGamePause()
+    {
+        gamePause = !gamePause;
+        //activar canvas de pausa
+        
+        if (pauseObject == null) pauseObject = Instantiate(pauseCanvas, canvas.transform) as GameObject;
+        else
+        {
+            Destroy(pauseObject);
+        }
+    }
+
+    public bool GetGamePause()
+    {
+        return gamePause;
+    }
+
+
+
+
+
 }

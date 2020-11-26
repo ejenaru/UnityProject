@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Scenario
   - Bullet
+  - Bullet1
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - PlayerBullets
+  - EnemyBullets
   - 
   - 
   - 

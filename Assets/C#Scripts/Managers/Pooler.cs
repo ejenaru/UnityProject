@@ -25,7 +25,7 @@ public class Pooler : MonoBehaviour
             //Pool("Bullet1");
             for (int i = 0; i < item.amountToPool; i++)
             {
-                print("Pool(0) dentro de for" + item.amountToPool);
+                
                 GameObject obj = (GameObject)Instantiate(item.objectToPool);
                 obj.SetActive(false);
                 pooledObjects.Add(obj);
@@ -39,7 +39,7 @@ public class Pooler : MonoBehaviour
         {
             if (item.objectToPool.CompareTag(_objectTag))
             {
-                print("Pool(0) dentro de for" + item.amountToPool);
+                
                 GameObject obj = (GameObject)Instantiate(item.objectToPool);
                 obj.SetActive(false);
                 pooledObjects.Add(obj);
@@ -48,10 +48,10 @@ public class Pooler : MonoBehaviour
     }
     public GameObject GetPooledObject(string _objectTag) //te pide el tag del objeto que (tenemos en el array) queremos poolear
     {
-        print("GetPooledObject:: fuera for"+ pooledObjects.Count);
+        
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            print("GetPooledObject:: dentro de count" + pooledObjects.Count);
+            
             if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].CompareTag(_objectTag))
                 return pooledObjects[i];
         }

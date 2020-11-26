@@ -53,6 +53,16 @@ public class PlayerControllerFRONT : MonoBehaviour
         //--Gravity--
         if (other.gameObject.tag == "Scenario") canIChangeGravity = true;
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag.Equals("Key"))
+        {
+            print("TOCANDO MONEDA");
+            GameManager.manager.loot.keyNumber++;
+            other.gameObject.SetActive(false);
+            GameManager.manager.keyText.text = GameManager.manager.loot.keyNumber.ToString();
+        }
+    }
 
     //esta función hace que el personaje se mueva en horizontal
     public void Movement(float _movH) //and animation

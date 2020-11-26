@@ -7,6 +7,10 @@ TagManager:
   - Scenario
   - Bullet
   - Bullet1
+  - LargeTile
+  - LevelChanger
+  - Coin
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -46,4 +50,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3219728513
+    locked: 0
+  - name: EncimaPlayer
+    uniqueID: 2143205563
     locked: 0

@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     public LootManager loot;
     public Pooler pool;
     private int currentScene;
-    //Se puede guardar en un array los nombres de las escenas.
+
+
+    public Text keyText;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
         player = GameObject.FindWithTag("Player");
         currentScene = 0;
+        keyText = GameObject.Find("KeyText").GetComponent<Text>();
     }
     void Start() //esto tiene que ir en start porque si no no encuentra el loot, que se asigna en awake no se si estará bien o me dará mas fallos
     {

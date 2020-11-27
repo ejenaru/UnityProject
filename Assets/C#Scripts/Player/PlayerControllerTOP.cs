@@ -9,6 +9,7 @@ public class PlayerControllerTOP : MonoBehaviour
     public float speed = 10;
     float movH;
     float movV;
+    Rigidbody2D rigidBod;
 
     //-----SHOOT-----
     float shootH;
@@ -26,39 +27,58 @@ public class PlayerControllerTOP : MonoBehaviour
     
     void Awake()
     {
+        rigidBod = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         //----INPUTS----
-        movH = Input.GetAxisRaw("Horizontal");
-        movV = Input.GetAxisRaw("Vertical");
-        shootH = Input.GetAxis("HorizontalShoot");
-        shootV = Input.GetAxis("VerticalShoot");
+        if (GameManager.manager.GetGamePause() == false)
+        {
+            movH = Input.GetAxisRaw("Horizontal");
+            movV = Input.GetAxisRaw("Vertical");
+            shootH = Input.GetAxis("HorizontalShoot");
+            shootV = Input.GetAxis("VerticalShoot");
 
-        //---Time related--
-        timeNow = Time.time;
+            //---Time related--
+            timeNow = Time.time;
 
-        //----Funtions----
-        Movement(movH, movV);
-        Animation(movH, movV);
-        ShootTop(bullet, shootH, shootV);
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        //Las balas por defecto son Trigger para no mover al personaje, cuando salen del personaje son colliders
-        if (other.gameObject.CompareTag("Bullet")) other.isTrigger = false; 
+            //----Funtions----
+            Movement(movH, movV);
+            Animation(movH, movV);
+            ShootTop(bullet, shootH, shootV);
+
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameManager.manager.SetGamePause();
+        }
+
+
     }
 
     public void Movement(float _movH, float _movV)
     {
+
+        //rigidBod.position += new Vector2(0, _movV * Time.deltaTime * speed);
+        //rigidBod.position += new Vector2(_movH * Time.deltaTime * speed,0);
+
+        //Debug.Log("parametros de movimiento: " + _movH + " ||| " + _movV);
+
         transform.Translate(transform.right * _movH * Time.deltaTime * speed);
         transform.Translate(transform.up * _movV * Time.deltaTime * speed);
+
+
     }
     public void Animation(float _movH, float _movV)
     {
-        if (_movH != 0)
+        //if (_movV>0) { moveUp = true; }
+
+        /*if (_movH != 0)
         {
             anim.SetBool("IsWalkingH", true);
 
@@ -82,7 +102,10 @@ public class PlayerControllerTOP : MonoBehaviour
         {
             anim.SetBool("IsWalkingUp", false);
             anim.SetBool("IsWalkingDown", false);
-        }
+        }*/
+
+        anim.SetFloat("movH", _movH);
+        anim.SetFloat("movV", _movV);
     }
     public void ShootTop(GameObject bulletToShoot,float _shootH, float _shootV)
     {
@@ -92,10 +115,16 @@ public class PlayerControllerTOP : MonoBehaviour
         {
             if (_shootH != 0 || _shootV != 0)
             {//aqui hay que hacer un pool
-                GameObject bullet_ = Instantiate(bulletToShoot, transform.position, transform.rotation);
+                GameObject bullet = Pooler.pooler.GetPooledObject("Bullet");
                 Vector2 direction = new Vector2(shootH, shootV).normalized;
+                if (bullet != null)
+                {
+                    bullet.transform.position = transform.position;
+                    bullet.transform.rotation = transform.rotation;
+                    bullet.SetActive(true);
+                    bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                }
                 timeLastShoot = Time.time;
-                bullet_.GetComponent<Rigidbody2D>().velocity = direction * force;
             }
         } 
     }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class LootManager : MonoBehaviour
 {
     public static LootManager loot;
-    public int keyNumber;
+    public int keyNumber;    
+
     void Awake()
     {
         loot = this;
@@ -16,5 +17,10 @@ public class LootManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddKeyNumber()
+    {
+        keyNumber++;
     }
 }

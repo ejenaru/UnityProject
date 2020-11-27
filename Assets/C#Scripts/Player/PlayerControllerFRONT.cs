@@ -38,8 +38,8 @@ public class PlayerControllerFRONT : MonoBehaviour
         timeNow = Time.time;
         //----Funtions----
         if (Input.GetButtonDown("Jump") && canIChangeGravity) ChangeGravity(); 
-        //Movement(movH);
-        ShootFront(bullet);
+
+        ShootFront("Bullet1");
     }
 
     private void FixedUpdate()
@@ -48,96 +48,43 @@ public class PlayerControllerFRONT : MonoBehaviour
         Movement(movH);
     }
 
-
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         //--Gravity--
         if (other.gameObject.tag == "Scenario") canIChangeGravity = true;
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("bullet")) other.isTrigger = false;
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("coin"))
+        if (other.tag.Equals("Key"))
         {
-            
-            //añadir sonido de moneda
-            Destroy(other.gameObject);
-            
+            print("TOCANDO MONEDA");
+            //GameManager.manager.loot.keyNumber++;
+            //GameManager.manager.AddKeyNumber();
+            LootManager.loot.AddKeyNumber();
+            other.gameObject.SetActive(false);
+            GameManager.manager.keyText.text = GameManager.manager.loot.keyNumber.ToString();
         }
-        
     }
 
     //esta función hace que el personaje se mueva en horizontal
     public void Movement(float _movH) //and animation
     {
-        RaycastHit2D hit;
-        float distance = 0;
-        float characterWide = 0.5f; //ancho del personaje
+        //hay que hacerlo con el rigidbody porque el transform interactua mal con las físicas.
 
-        if (_movH < 0)  //ir hacia la izquierda
-        {
-            hit = Physics2D.Raycast(transform.position - new Vector3(characterWide, 0, 0) , Vector2.left);
-        }
-        else //if(_movH >0) //
-        {
-            hit = Physics2D.Raycast(transform.position + new Vector3(characterWide, 0, 0), Vector2.right);
-        }
-
-        if (hit.collider != null)
-        {
-            //Debug.Log("...." + hit.point.x + " ||||  " + transform.position.x);
-            distance = Mathf.Abs(hit.point.x - transform.position.x);
-            if (distance > 0) distance = 1;
-            else distance = 0;
-        }
-        else distance = 1;
-
-
-        Debug.Log("distancia: " + distance);
-        transform.Translate(transform.right * _movH * Time.deltaTime * speed * distance);
+        rigidBod.position = (transform.position + transform.right * _movH * Time.deltaTime * speed);
+       
+        //transform.Translate(transform.right * _movH * Time.deltaTime * speed);
     }
-
-
-    /*
-    void FixedUpdate()
-    {
-        // Cast a ray straight down.
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-
-        // If it hits something...
-        if (hit.collider != null)
-        {
-            // Calculate the distance from the surface and the "error" relative
-            // to the floating height.
-            float distance = Mathf.Abs(hit.point.y - transform.position.y);
-            float heightError = floatHeight - distance;
-
-            // The force is proportional to the height error, but we remove a part of it
-            // according to the object's speed.
-            float force = liftForce * heightError - rb2D.velocity.y * damping;
-
-            // Apply the force to the rigidbody.
-            rb2D.AddForce(Vector3.up * force);
-        }
-    }
-    */
-
-
-
-
 
     //esta función hace que el personaje DISPARE en horizontal y vertical con las teclas de movimiento.
-    public void ShootFront(GameObject bulletToShoot)
+    public void ShootFront(string _bulletTag)
     {
-        
+        GameObject _bullet = Pooler.pooler.GetPooledObject(_bulletTag);
         bool canIShoot = timeNow - timeLastShoot > cadency;
         Vector2 direction;
         if (canIShoot) //para la cadencia
         {
+            
             //entra si disparo en horizontal y vertical es 0
             if ((shootV == 0 && shootH != 0) ||
                 // entra si estoy en suelo y disparo para arriba
@@ -147,16 +94,28 @@ public class PlayerControllerFRONT : MonoBehaviour
             {
                 //dispara en horizontal
                 direction = new Vector2(shootH, shootV).normalized;
-                GameObject bullet = Instantiate(bulletToShoot, transform.position, transform.rotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                if (_bullet!= null) //y tiene la tag bullet
+                {
+                    print("bullet !=null");
+                    _bullet.transform.position = transform.position;
+                    _bullet.transform.rotation = transform.rotation;
+                    _bullet.SetActive(true);
+                    _bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                }
+                
                 timeLastShoot = Time.time;
             }
-            else if ((isGravityPositive && shootV < 0 && shootH != 0) ||
-                    (!isGravityPositive && shootV > 0 && shootH != 0))
+            else if ((isGravityPositive && shootV < 0 && shootH != 0) || (!isGravityPositive && shootV > 0 && shootH != 0))
             {
                 direction = new Vector2(shootH, 0).normalized;
-                GameObject bullet = Instantiate(bulletToShoot, transform.position, transform.rotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                if (_bullet != null)
+                {
+                    _bullet.transform.position = transform.position;
+                    _bullet.transform.rotation = transform.rotation;
+                    _bullet.SetActive(true);
+                    _bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                }
+                
                 timeLastShoot = Time.time;
             }
             

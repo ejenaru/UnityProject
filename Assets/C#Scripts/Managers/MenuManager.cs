@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MenuManager : MonoBehaviour
 {
     AudioSource audioSource;
+    public AudioMixer audioMixer;
     public AudioClip volumenPrueba;
     public GameObject sliderVolume;
 
 
     private void Start()
     {
-        LoadPlayerPrefs();
+        //LoadPlayerPrefs();
         audioSource = GetComponent<AudioSource>();
     }
-    private void Update()
-    {
-    }
+
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -37,8 +37,8 @@ public class MenuManager : MonoBehaviour
     }
     public void ChangeVolumen(float volume)
     {
-        audioSource.volume = volume;
-        SavePlayerPrefs(volume);
+        audioMixer.SetFloat("Master", volume);
+       // SavePlayerPrefs(volume);
     }
 
     public void SavePlayerPrefs(float volume)

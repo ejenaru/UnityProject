@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     private int currentScene;
     //Se puede guardar en un array los nombres de las escenas.
 
+    //private gameState;  //0 - menu, 1 - dialog, 2 - battle, 3 - world, 4 - dungeon 
+
+
+
     private void Awake()
     {
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StoryText : MonoBehaviour
 {
@@ -10,9 +11,10 @@ public class StoryText : MonoBehaviour
     public Text clickToNextLine; //Texto "Pulse click izquierdo para pasar a la siguiente línea de historia"
 
     public GameObject panelStory; //Panel en el que se cuenta la historia
+    public GameObject panelMenu;
     public GameObject fadeToMenu;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip musicIntro;
 
     int numeroFrases = 0;
@@ -23,10 +25,19 @@ public class StoryText : MonoBehaviour
     bool controladorVolumen;
     bool controladorFadePanel;
     bool controladorEnd;
+    bool esPanelFinal;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        if (panelMenu.activeInHierarchy)
+        {
+            panelMenu.SetActive(false);
+            esPanelFinal = true;
+        }
+        /*if (!panelMenu)
+        {
+            panelMenu.SetActive(true);
+        }*/
         audioSource.clip = musicIntro;
         audioSource.Play();
         clickToNextLine.gameObject.SetActive(false);
@@ -56,8 +67,19 @@ public class StoryText : MonoBehaviour
         }
         if (controladorEnd)
         {
-            audioSource.Stop();
-            panelStory.SetActive(false);
+            if (esPanelFinal)
+            {
+                audioSource.Stop();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                
+            }
+            else
+            {
+                audioSource.Stop();
+                panelStory.SetActive(false);
+                panelMenu.SetActive(true);
+            }
+
         }
 
     }

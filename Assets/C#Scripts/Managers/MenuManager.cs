@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager menuManager;
     AudioSource audioSource;
     public AudioMixer audioMixer;
     public AudioClip volumenPrueba;
@@ -15,13 +16,14 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        menuManager = this;
         //LoadPlayerPrefs();
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void LoadNextLevel()
+    public void LoadLevel(int level)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(level);
     }
 
     public void Quit()

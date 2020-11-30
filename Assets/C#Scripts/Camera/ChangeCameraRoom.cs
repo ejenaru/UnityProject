@@ -40,9 +40,9 @@ public class ChangeCameraRoom : MonoBehaviour
         if (keyRequired && other.gameObject.CompareTag("Player")) 
         {
             //mira si mi player tiene en el inventario llaves
-            if (GameManager.manager.loot.keyNumber > 0)
+            if (LootManager.loot.keyNumber > 0)
             {
-                GameManager.manager.loot.keyNumber -= 1;
+                LootManager.loot.keyNumber -= 1;
                 //--------------------AÑADIR ANIMACION DEPUERTA ABRIENDOSE
                 this.gameObject.GetComponent<Collider2D>().isTrigger = true;
             }

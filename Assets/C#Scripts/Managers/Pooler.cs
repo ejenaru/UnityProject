@@ -21,7 +21,7 @@ public class Pooler : MonoBehaviour
         
         foreach (ObjectPoolItem item in objectsToPool)
         {
-            //Pool("Bullet");
+            Pool("Bullet");
             //Pool("Bullet1");
             for (int i = 0; i < item.amountToPool; i++)
             {

@@ -9,7 +9,7 @@ public class CameraFollowTOP : MonoBehaviour
     //public Vector2 sala2;
 
     public Vector3 targetPosition;
-    public float speed;
+    float speed = 200;
 
     public bool CameraMustChange;
 

@@ -23,8 +23,9 @@ public class PlayerControllerTOP : MonoBehaviour
 
     //-------Animator-----
     private Animator anim;
+    Vector2 lookDirection = new Vector2(1, 0);
 
-    
+
     void Awake()
     {
         rigidBod = GetComponent<Rigidbody2D>();
@@ -38,8 +39,8 @@ public class PlayerControllerTOP : MonoBehaviour
         {
             movH = Input.GetAxisRaw("Horizontal");
             movV = Input.GetAxisRaw("Vertical");
-            shootH = Input.GetAxis("HorizontalShoot");
-            shootV = Input.GetAxis("VerticalShoot");
+            shootH = Input.GetAxisRaw("HorizontalShoot");
+            shootV = Input.GetAxisRaw("VerticalShoot");
 
             //---Time related--
             timeNow = Time.time;
@@ -64,48 +65,37 @@ public class PlayerControllerTOP : MonoBehaviour
     public void Movement(float _movH, float _movV)
     {
 
-        //rigidBod.position += new Vector2(0, _movV * Time.deltaTime * speed);
-        //rigidBod.position += new Vector2(_movH * Time.deltaTime * speed,0);
+        rigidBod.position += new Vector2(0, _movV * Time.deltaTime * speed);
+        rigidBod.position += new Vector2(_movH * Time.deltaTime * speed,0);
 
-        //Debug.Log("parametros de movimiento: " + _movH + " ||| " + _movV);
+        //-----Guardar la posición en la que se quedó-----
+        if (!Mathf.Approximately(_movV + shootV, 0.0f) || !Mathf.Approximately(_movH + shootH, 0.0f))
+        { 
+            lookDirection.Set(_movH+shootH, _movV+shootV);
+            lookDirection.Normalize();
+            Debug.Log("Maths if movH:" + _movH + ", movV" + _movV +
+                ", shootH" + shootH + ",ShootV" + shootV + ", lookX " +
+                lookDirection.x + ", lookY" + lookDirection.y + "");
+        }
 
-        transform.Translate(transform.right * _movH * Time.deltaTime * speed);
-        transform.Translate(transform.up * _movV * Time.deltaTime * speed);
+
+
+        //transform.Translate(transform.right * _movH * Time.deltaTime * speed);
+        //transform.Translate(transform.up * _movV * Time.deltaTime * speed);
 
 
     }
     public void Animation(float _movH, float _movV)
     {
-        //if (_movV>0) { moveUp = true; }
-
-        /*if (_movH != 0)
-        {
-            anim.SetBool("IsWalkingH", true);
-
-            if (_movH > 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (_movH < 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-            }
-        }
-        else anim.SetBool("IsWalkingH", false);
-
-        if (_movV != 0)
-        {
-            if (_movV > 0) anim.SetBool("IsWalkingUp", true);
-            else if (_movV < 0) anim.SetBool("IsWalkingDown", true);
-        }
-        else
-        {
-            anim.SetBool("IsWalkingUp", false);
-            anim.SetBool("IsWalkingDown", false);
-        }*/
-
-        anim.SetFloat("movH", _movH);
-        anim.SetFloat("movV", _movV);
+        //----ShootAnim---
+        anim.SetBool("Shoot", (shootH + shootV != 0));
+        anim.SetFloat("ShootH", shootH);
+        anim.SetFloat("ShootV", shootV);
+        //----Direction stay anim---
+        anim.SetFloat("LookH", lookDirection.x);
+        anim.SetFloat("LookV", lookDirection.y);
+        //----Moving anim----
+        anim.SetBool("Move",((_movH + _movV) != 0));
     }
     public void ShootTop(GameObject bulletToShoot,float _shootH, float _shootV)
     {
@@ -114,7 +104,8 @@ public class PlayerControllerTOP : MonoBehaviour
         if (canIShoot)
         {
             if (_shootH != 0 || _shootV != 0)
-            {//aqui hay que hacer un pool
+            {
+                
                 GameObject bullet = Pooler.pooler.GetPooledObject("Bullet");
                 Vector2 direction = new Vector2(shootH, shootV).normalized;
                 if (bullet != null)

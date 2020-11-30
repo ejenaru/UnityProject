@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
     public GameObject camera;
     public static GameManager manager; //static para poder acceder a ella sin necesidad de crear un objeto.
     public GameObject player;
-    public LootManager loot;
-    public Pooler pool;
     private int currentScene;
 
     public GameObject PlayerPrefab;
@@ -41,20 +39,18 @@ public class GameManager : MonoBehaviour
         manager = this; //singletone
         DontDestroyOnLoad(this.gameObject);
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
-        //player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player");
         currentScene = 0;
-        //keyText = GameObject.Find("KeyText").GetComponent<Text>();
+        
         
     }
     
     void Start() //esto tiene que ir en start porque si no no encuentra el loot, que se asigna en awake no se si estará bien o me dará mas fallos
     {
-        loot = LootManager.loot;
-        pool = Pooler.pooler;
 
         gameStartPosition = initialGamePosition;
         //instanciar al personaje
-        player = Instantiate(PlayerPrefab, gameStartPosition, Quaternion.identity);
+        //player = Instantiate(PlayerPrefab, gameStartPosition, Quaternion.identity);
     }
 
     // Update is called once per frame

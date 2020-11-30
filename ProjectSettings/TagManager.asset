@@ -11,6 +11,8 @@ TagManager:
   - LevelChanger
   - Coin
   - Key
+  - ToRoom
+  - ToDungeon
   layers:
   - Default
   - TransparentFX

@@ -62,7 +62,7 @@ public class PlayerControllerFRONT : MonoBehaviour
             //GameManager.manager.AddKeyNumber();
             LootManager.loot.AddKeyNumber();
             other.gameObject.SetActive(false);
-            GameManager.manager.keyText.text = GameManager.manager.loot.keyNumber.ToString();
+            GameManager.manager.keyText.text = LootManager.loot.keyNumber.ToString();
         }
     }
 

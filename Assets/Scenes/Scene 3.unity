@@ -77681,9 +77681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533e7dbbe9a831240861e917a83dc057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  volumenPrueba: {fileID: 0}
-  sliderVolume: {fileID: 0}
 --- !u!114 &451950692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77711,8 +77708,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1261887795}
   player: {fileID: 0}
-  loot: {fileID: 0}
-  pool: {fileID: 0}
   PlayerPrefab: {fileID: 2318393956383919500, guid: a8e9a5bebd6067e43a4e63e8bb23700d,
     type: 3}
   gameStartPosition: {x: 0, y: 0, z: 0}
@@ -100135,7 +100130,7 @@ GameObject:
   - component: {fileID: 1592853713}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Scenario
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119026,13 +119021,14 @@ GameObject:
   - component: {fileID: 6931890072075543530}
   - component: {fileID: 6931890072075543537}
   - component: {fileID: 6931890072075543532}
+  - component: {fileID: 6931890072075543536}
   m_Layer: 8
   m_Name: PlayerFRONT
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &6931890072075543532
 Animator:
   serializedVersion: 3
@@ -119081,7 +119077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6931890072075543531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.94, y: 5.7626443, z: 0}
+  m_LocalPosition: {x: 129.79, y: -75.51, z: 0}
   m_LocalScale: {x: 7.3237467, y: 7.3237467, z: 7.3237467}
   m_Children:
   - {fileID: 1795415355}
@@ -119139,6 +119135,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &6931890072075543536
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931890072075543531}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.08974974}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.14, y: 0.24}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14, y: 0.086253464}
+  m_EdgeRadius: 0
 --- !u!58 &6931890072075543537
 CircleCollider2D:
   m_ObjectHideFlags: 0

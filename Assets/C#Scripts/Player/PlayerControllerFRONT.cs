@@ -26,6 +26,9 @@ public class PlayerControllerFRONT : MonoBehaviour
     void Start()
     {
         rigidBod = GetComponent<Rigidbody2D>();
+
+
+
     }
 
     void Update()
@@ -64,7 +67,22 @@ public class PlayerControllerFRONT : MonoBehaviour
             other.gameObject.SetActive(false);
             GameManager.manager.keyText.text = LootManager.loot.keyNumber.ToString();
         }
+    
+        if (other.tag.Equals("Platform"))
+        {
+            transform.SetParent(other.transform);
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag.Equals("Platform"))
+        {
+            transform.SetParent(null);
+        }
+    }
+
+
 
     //esta función hace que el personaje se mueva en horizontal
     public void Movement(float _movH) //and animation

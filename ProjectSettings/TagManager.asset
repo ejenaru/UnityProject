@@ -15,6 +15,9 @@ TagManager:
   - Name
   - DialogText
   - Face
+  - ToRoom
+  - ToDungeon
+  - Platform
   layers:
   - Default
   - TransparentFX

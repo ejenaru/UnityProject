@@ -11,6 +11,10 @@ TagManager:
   - LevelChanger
   - Coin
   - Key
+  - Text
+  - Name
+  - DialogText
+  - Face
   - ToRoom
   - ToDungeon
   - Platform

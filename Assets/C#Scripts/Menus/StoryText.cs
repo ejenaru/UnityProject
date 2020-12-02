@@ -16,6 +16,9 @@ public class StoryText : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip musicIntro;
+    //public AudioSource audiosourceclic;
+    //public AudioClip clic;
+
 
     int numeroFrases = 0;
     int finDeHistoria = 0;
@@ -48,6 +51,10 @@ public class StoryText : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && controlador)
         {
+            //audiosourceclic.clip = clic;
+            //audiosourceclic.Play();
+            AudioController.audioManager.ClickSFX();
+
             if (numeroFrases < frasesHistoria.Length)
             {
                 StartCoroutine(FadeInOut(textoHistoria));
@@ -160,4 +167,18 @@ public class StoryText : MonoBehaviour
         }
         controladorVolumen = true;
     }
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
+    }
 }
+

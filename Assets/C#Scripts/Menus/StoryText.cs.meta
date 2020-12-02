@@ -3,7 +3,14 @@ guid: 9bc1a8fef6e51d745b1f099c058d4097
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - textoHistoria: {instanceID: 0}
+  - clickToNextLine: {instanceID: 0}
+  - panelStory: {instanceID: 0}
+  - panelMenu: {instanceID: 0}
+  - fadeToMenu: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - musicIntro: {fileID: 8300000, guid: 2a75fc9e96cb1da44961e800fd5fe17e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

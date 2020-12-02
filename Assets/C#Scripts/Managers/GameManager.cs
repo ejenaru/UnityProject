@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
             KillPlayer();
         }
     }
+
+
     #region SceneManagement
     public void LoadLevel(int sceneToLoad) //Función a la que debemos INDICAR mediante un INT el nº de escena que queremos cargar
 
@@ -73,7 +75,18 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(sceneToLoad);
 
+        /*switch (sceneType)
+        {
+            case Dunge
+
+            ca
+        }*/
+
+
     }
+
+
+
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);

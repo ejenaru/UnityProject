@@ -11,6 +11,7 @@ public class TriggerToScene : MonoBehaviour
     public sceneType scene;
 
     private void OnTriggerStay2D(Collider2D other)
+    //private void OnTriggerEnter2D(Collider2D other)
     {
       /* if (other.gameObject.CompareTag("Player") && this.gameObject.CompareTag("ToDungeon"))
         {
@@ -41,7 +42,8 @@ public class TriggerToScene : MonoBehaviour
 
             if (scene==sceneType.dungeon)
             {
-                MenuManager.menuManager.LoadLevel(levelToLoad);
+                //MenuManager.menuManager.LoadLevel(levelToLoad);
+                GameManager.manager.LoadLevel(levelToLoad);
             }
             else
             {
@@ -49,7 +51,8 @@ public class TriggerToScene : MonoBehaviour
                 if (Input.GetButtonDown("Action"))
                 {
                     print("Action");
-                    MenuManager.menuManager.LoadLevel(levelToLoad);
+                    //MenuManager.menuManager.LoadLevel(levelToLoad);
+                    GameManager.manager.LoadLevel(levelToLoad);
                 }
             }
         }

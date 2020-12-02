@@ -21,16 +21,6 @@ public class MenuManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void LoadLevel(int level)
-    {
-        SceneManager.LoadScene(level);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-    }
-
     public void PlayVolume()
     {
         sliderVolume.SetActive(true);

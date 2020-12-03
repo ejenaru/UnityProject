@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollowTOP : MonoBehaviour
-{
-    //posiciones de la camara en la mazmorra TOP
-    //public Vector2 sala1;
-    //public Vector2 sala2;
+{ 
 
     public Vector3 targetPosition;
     float speed = 200;
@@ -16,6 +13,7 @@ public class CameraFollowTOP : MonoBehaviour
 
     private void Start()
     {
+        transform.position = GameManager.manager.cameraPosition;
         CameraMustChange = false;
     }
     void Update()

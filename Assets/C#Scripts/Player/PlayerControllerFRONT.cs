@@ -20,23 +20,26 @@ public class PlayerControllerFRONT : MonoBehaviour
     float timeLastShoot;
     public float cadency = 2;
     public float force;
-
+    //---------ANIMATION----------
     public Rigidbody2D rigidBod; // el rigidbody guardado.
+    public SpriteRenderer sprite;
+    public Animator anim;
+    Vector2 lookDirection = new Vector2(1, 0);
 
     void Start()
     {
+        this.transform.position = GameManager.manager.sceneStartPosition;
         rigidBod = GetComponent<Rigidbody2D>();
-
-
-
+        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         //---INPUTS---
-        movH = Input.GetAxis("Horizontal");
-        shootH = Input.GetAxis("HorizontalShoot");
-        shootV = Input.GetAxis("VerticalShoot");
+        movH = Input.GetAxisRaw("Horizontal");
+        shootH = Input.GetAxisRaw("HorizontalShoot");
+        shootV = Input.GetAxisRaw("VerticalShoot");
         //----TIME related----
         timeNow = Time.time;
         //----Funtions----
@@ -47,7 +50,7 @@ public class PlayerControllerFRONT : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        Animation(movH);
         Movement(movH);
     }
 
@@ -90,10 +93,30 @@ public class PlayerControllerFRONT : MonoBehaviour
         //hay que hacerlo con el rigidbody porque el transform interactua mal con las físicas.
 
         rigidBod.position = (transform.position + transform.right * _movH * Time.deltaTime * speed);
-       
+        if (!Mathf.Approximately(shootV, 0.0f) || !Mathf.Approximately(_movH + shootH, 0.0f))
+        {
+            lookDirection.Set(_movH + shootH, shootV);
+            lookDirection.Normalize();
+
+
+            Debug.Log("Maths if movH:" + _movH + ", movV" +
+                ", shootH" + shootH + ",ShootV" + shootV + ", lookX " +
+                lookDirection.x + ", lookY" + lookDirection.y + "");
+        }
         //transform.Translate(transform.right * _movH * Time.deltaTime * speed);
     }
-
+    public void Animation(float _movH)
+    {
+        //----ShootAnim---
+        anim.SetBool("Shoot", (shootH + shootV != 0));
+        anim.SetFloat("ShootH", shootH);
+        anim.SetFloat("ShootV", shootV);
+        //----Direction stay anim---
+        anim.SetFloat("LookH", lookDirection.x);
+        anim.SetFloat("LookV", lookDirection.y);
+        //----Moving anim----
+        anim.SetBool("Move", ((_movH) != 0));
+    }
     //esta función hace que el personaje DISPARE en horizontal y vertical con las teclas de movimiento.
     public void ShootFront(string _bulletTag)
     {
@@ -143,6 +166,8 @@ public class PlayerControllerFRONT : MonoBehaviour
     //esta función CAMBIA la direccion de la gravedad del personaje que lo lleva 
     public void ChangeGravity() 
     {
+        
+        sprite.flipY = !sprite.flipY;
         rigidBod.gravityScale *= -1; //cambiar el signo
         //devuelve un booleano diciendo si la gravedad está activa o no, puede servir más adelante para darle la vuelta a la animación 
         //cuando esté boca abajo o para disparar

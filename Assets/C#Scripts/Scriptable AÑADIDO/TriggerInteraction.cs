@@ -10,17 +10,17 @@ public class TriggerInteraction : MonoBehaviour
 
     bool playerTrigger;
 
-    private void OnTriggerEnter2D(Collider2D objeto)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (objeto.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerTrigger = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D objeto)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (objeto.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerTrigger = false;
         }

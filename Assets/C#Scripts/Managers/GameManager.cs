@@ -9,17 +9,17 @@ public class GameManager : MonoBehaviour
 
 {
     //------VARIABLES QUE VAMOS A USAR MUCHAS VECES LAS GUARDAMOS AQUI
-    public GameObject camera;
+    public GameObject cam;
     public static GameManager manager; //static para poder acceder a ella sin necesidad de crear un objeto.
+
+    //-------PLAYER PREFS------
     public GameObject player;
-    private int currentScene;
-
     public GameObject PlayerPrefab;
-
-    private Vector3 initialGamePosition = new Vector3(2.94f, 5.76f, 0);
-    public Vector3 gameStartPosition;
-
-
+    //-------GUARDAR AL CAMBIAR DE ROOM----
+    private Vector3 initialPosition = new Vector3(-0.5f, 2f, 0);
+    public Vector3 sceneStartPosition; //La posición que toma el personaje al pasar por el trigger
+    public Vector3 cameraPosition;
+    public int currentScene;
 
     //variables de estado 
     private bool gamePause = false;
@@ -40,15 +40,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
         player = GameObject.FindWithTag("Player");
-        currentScene = 0;
-        
         
     }
     
     void Start() //esto tiene que ir en start porque si no no encuentra el loot, que se asigna en awake no se si estará bien o me dará mas fallos
     {
-
-        gameStartPosition = initialGamePosition;
+        cameraPosition = new Vector3(0, 0, -10);
+        sceneStartPosition = initialPosition;
         //instanciar al personaje
         //player = Instantiate(PlayerPrefab, gameStartPosition, Quaternion.identity);
     }
@@ -133,7 +131,7 @@ public class GameManager : MonoBehaviour
     #region SavePoint
     public void UpdateSavePoint(Vector3 newPosition)
     {
-        gameStartPosition = new Vector3(newPosition.x, newPosition.y, 0);   //ponemos la Z a 0 porque el sistema de particulas está en z=-12
+        sceneStartPosition = new Vector3(newPosition.x, newPosition.y, 0);   //ponemos la Z a 0 porque el sistema de particulas está en z=-12
     }
 
 
@@ -144,8 +142,8 @@ public class GameManager : MonoBehaviour
     private void KillPlayer()
     {
         Destroy(player);
-        player = Instantiate(PlayerPrefab, gameStartPosition, Quaternion.identity);
-        camera.GetComponent<CameraFollowFRONT>().ResetCameraPosition();
+        player = Instantiate(PlayerPrefab, sceneStartPosition, Quaternion.identity);
+        cam.GetComponent<CameraFollowFRONT>().ResetCameraPosition();
 
     }
 

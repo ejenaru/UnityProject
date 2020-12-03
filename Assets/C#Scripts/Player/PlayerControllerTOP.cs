@@ -28,6 +28,7 @@ public class PlayerControllerTOP : MonoBehaviour
 
     void Awake()
     {
+        this.transform.position = GameManager.manager.sceneStartPosition;
         rigidBod = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }

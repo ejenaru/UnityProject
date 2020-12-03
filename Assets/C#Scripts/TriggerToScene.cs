@@ -4,57 +4,40 @@ using UnityEngine;
 
 public class TriggerToScene : MonoBehaviour
 {
-    public enum sceneType { dungeon, room }
-
-    public int levelToLoad;
-
+    public enum sceneType { instant, requireButton}
     public sceneType scene;
+    public int levelToLoad;
+    public Vector3 playerLoad;
+    public Vector3 cameraLoad;
+
+
 
     private void OnTriggerStay2D(Collider2D other)
     //private void OnTriggerEnter2D(Collider2D other)
     {
-      /* if (other.gameObject.CompareTag("Player") && this.gameObject.CompareTag("ToDungeon"))
+        if (other.gameObject.CompareTag("Player")) 
         {
-            //fade to black
-            MenuManager.menuManager.LoadLevel(levelToLoad);
-        }
-
-        else if (other.gameObject.CompareTag("Player")&& this.gameObject.CompareTag("ToRoom"))
-        {
-            print("inside ToRoom");
-            if (Input.GetButtonDown("Action"))
+            switch (scene) 
             {
-                print("Action");
-                MenuManager.menuManager.LoadLevel(levelToLoad);
-            }
-                
-        }*/
+                case sceneType.instant:
+                    GameManager.manager.sceneStartPosition = playerLoad;
+                    GameManager.manager.cameraPosition = cameraLoad;
+                    GameManager.manager.LoadLevel(levelToLoad);
+                    break;
 
-
-        if (other.gameObject.CompareTag("Player")) {
-            /*switch (scene) {
-                case sceneType.dungeon: break;
-
-                case sceneType.room: break;
+                case sceneType.requireButton:
+                    if (Input.GetButtonDown("Action"))
+                    {
+                        print("Action");
+                        GameManager.manager.sceneStartPosition = playerLoad;
+                        GameManager.manager.cameraPosition = cameraLoad;
+                        GameManager.manager.LoadLevel(levelToLoad);
+                    }
+                    break;
                 
                 default: break;
-            }*/
+            }
 
-            if (scene==sceneType.dungeon)
-            {
-                //MenuManager.menuManager.LoadLevel(levelToLoad);
-                GameManager.manager.LoadLevel(levelToLoad);
-            }
-            else
-            {
-                print("inside ToRoom");
-                if (Input.GetButtonDown("Action"))
-                {
-                    print("Action");
-                    //MenuManager.menuManager.LoadLevel(levelToLoad);
-                    GameManager.manager.LoadLevel(levelToLoad);
-                }
-            }
         }
     }
 }

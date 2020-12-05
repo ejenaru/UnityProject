@@ -10,6 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f2fdf36025532b4fb3dc96fe4c719cb, type: 3}
-  m_Name: Chimenea
+  m_Name: Tablero
   m_EditorClassIdentifier: 
-  interaction: "El fuego de la chimenea ha calentado toda la habitaci\xF3n"
+  interaction:
+  - '"PELIGRO"'
+  characterFace: {fileID: -517894308114096243, guid: b006cba54609bb04984e2d229a3b3a09,
+    type: 3}
+  characterName: Conchita

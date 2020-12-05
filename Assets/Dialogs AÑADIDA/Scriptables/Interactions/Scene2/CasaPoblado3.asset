@@ -10,6 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f2fdf36025532b4fb3dc96fe4c719cb, type: 3}
-  m_Name: Cofres
+  m_Name: CasaPoblado3
   m_EditorClassIdentifier: 
-  interaction: "Los cofres parecen estar vac\xEDos"
+  interaction:
+  - El pomo de la puerta esta cubierto de polvo...
+  - Parece que nadie ha vivido aqui en mucho tiempo
+  characterFace: {fileID: -517894308114096243, guid: b006cba54609bb04984e2d229a3b3a09,
+    type: 3}
+  characterName: Conchita

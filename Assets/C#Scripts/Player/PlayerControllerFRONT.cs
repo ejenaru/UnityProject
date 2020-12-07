@@ -28,7 +28,7 @@ public class PlayerControllerFRONT : MonoBehaviour
 
     void Start()
     {
-        this.transform.position = GameManager.manager.sceneStartPosition;
+        this.transform.position = GameManager.manager.playerStartPosition;
         rigidBod = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();

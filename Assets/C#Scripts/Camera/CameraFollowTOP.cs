@@ -23,7 +23,7 @@ public class CameraFollowTOP : MonoBehaviour
     }
     public void SetPosition(GameObject room) //
     {
-        Vector3 roomVector = room.transform.position;
+        Vector3 roomVector = new Vector3(room.transform.position.x,room.transform.position.y,0);
         targetPosition = roomVector; //poner aqui SOLO la posición en x e y de la room
         CameraMustChange = true;
     }

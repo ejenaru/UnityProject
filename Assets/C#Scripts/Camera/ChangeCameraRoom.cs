@@ -49,12 +49,12 @@ public class ChangeCameraRoom : MonoBehaviour
         }
         
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     { //para 
         if (other.CompareTag("Player"))
         {
-            camFollow.SetPosition(DestinationRoom);//A esta funcion quiero darle un número. El número de la habitación a la que vaya
-            other.transform.position += destinationPlayer;
+            camFollow.SetPosition(DestinationRoom); //Coje la habitación hacia la que va y la setea
+            other.attachedRigidbody.position+= new Vector2(destinationPlayer.x, destinationPlayer.y); //Aplica al player un movimiento
         }   
     }
 

@@ -35,6 +35,9 @@ public class DialogPanelController : MonoBehaviour
             headName.text = headNames[dialogPosition];
             dialogText.text = dialogTexts[dialogPosition];
             dialogPosition++;
+           
         }
     }
+
+
 }

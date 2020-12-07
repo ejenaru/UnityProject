@@ -173,5 +173,6 @@ public class PlayerControllerFRONT : MonoBehaviour
         //cuando esté boca abajo o para disparar
         isGravityPositive = !isGravityPositive;
         canIChangeGravity = false;
+        AudioController.audioManager.GravityChange();
     }
 }

@@ -20,7 +20,7 @@ public class TriggerToScene : MonoBehaviour
             switch (scene) 
             {
                 case sceneType.instant:
-                    GameManager.manager.sceneStartPosition = playerLoad;
+                    GameManager.manager.playerStartPosition = playerLoad;
                     GameManager.manager.cameraPosition = cameraLoad;
                     GameManager.manager.LoadLevel(levelToLoad);
                     break;
@@ -29,7 +29,7 @@ public class TriggerToScene : MonoBehaviour
                     if (Input.GetButtonDown("Action"))
                     {
                         print("Action");
-                        GameManager.manager.sceneStartPosition = playerLoad;
+                        GameManager.manager.playerStartPosition = playerLoad;
                         GameManager.manager.cameraPosition = cameraLoad;
                         GameManager.manager.LoadLevel(levelToLoad);
                     }

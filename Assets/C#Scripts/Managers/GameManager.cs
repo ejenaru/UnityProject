@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerPrefab;
     //-------GUARDAR AL CAMBIAR DE ROOM----
     private Vector3 initialPosition = new Vector3(-0.5f, 2f, 0);
-    public Vector3 sceneStartPosition; //La posición que toma el personaje al pasar por el trigger
+    public Vector3 playerStartPosition; //La posición que toma el personaje al pasar por el trigger
     public Vector3 cameraPosition;
     public int currentScene;
 
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     void Start() //esto tiene que ir en start porque si no no encuentra el loot, que se asigna en awake no se si estará bien o me dará mas fallos
     {
         cameraPosition = new Vector3(0, 0, -10);
-        sceneStartPosition = initialPosition;
+        playerStartPosition = initialPosition;
         //instanciar al personaje
         //player = Instantiate(PlayerPrefab, gameStartPosition, Quaternion.identity);
     }
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     #region SavePoint
     public void UpdateSavePoint(Vector3 newPosition)
     {
-        sceneStartPosition = new Vector3(newPosition.x, newPosition.y, 0);   //ponemos la Z a 0 porque el sistema de particulas está en z=-12
+        playerStartPosition = new Vector3(newPosition.x, newPosition.y, 0);   //ponemos la Z a 0 porque el sistema de particulas está en z=-12
     }
 
 
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
     private void KillPlayer()
     {
         Destroy(player);
-        player = Instantiate(PlayerPrefab, sceneStartPosition, Quaternion.identity);
+        player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
         cam.GetComponent<CameraFollowFRONT>().ResetCameraPosition();
 
     }

@@ -153,6 +153,18 @@ MonoBehaviour:
   UIAudio: {fileID: 439418194}
   UIAudios: []
   click: {fileID: 0}
+  deathSpikes: {fileID: 0}
+  gravityChange: {fileID: 0}
+  coin: {fileID: 0}
+  key: {fileID: 0}
+  blackSmith: {fileID: 0}
+  door: {fileID: 0}
+  dialogueSens: {fileID: 0}
+  birds: {fileID: 0}
+  openDialogue: {fileID: 0}
+  shootPlayer: {fileID: 0}
+  bossHurt: {fileID: 0}
+  bossDeaht: {fileID: 0}
 --- !u!4 &104337029
 Transform:
   m_ObjectHideFlags: 0
@@ -2111,7 +2123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &968520335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,7 +2139,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   player: {fileID: 0}
   PlayerPrefab: {fileID: 0}
-  sceneStartPosition: {x: 0, y: 0, z: 0}
+  playerStartPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   currentScene: 0
   pauseCanvas: {fileID: 0}

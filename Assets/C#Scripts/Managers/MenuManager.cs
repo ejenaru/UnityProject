@@ -45,4 +45,9 @@ public class MenuManager : MonoBehaviour
             AudioListener.volume = PlayerPrefs.GetFloat("VolumenGeneral");
         }
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

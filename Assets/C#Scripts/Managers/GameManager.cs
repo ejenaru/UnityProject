@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             KillPlayer();
+            AudioController.audioManager.DeathSpikes();
         }
     }
 
@@ -144,6 +145,7 @@ public class GameManager : MonoBehaviour
         Destroy(player);
         player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
         cam.GetComponent<CameraFollowFRONT>().ResetCameraPosition();
+
 
     }
 

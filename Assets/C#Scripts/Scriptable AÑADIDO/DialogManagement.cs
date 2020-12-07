@@ -16,7 +16,7 @@ public class DialogManagement : MonoBehaviour
     public int dialogIndex = 0;
 
     //private void OnEnable()
-    private void Start()
+    private void Start() //Se ha cambiado de Start
     {
         //Image characterFace = GameObject.FindGameObjectWithTag("Face").GetComponent<Image>();
         characterFace = prefabDialog.transform.Find("Inside").Find("HeadImageMark").Find("HeadImage").GetComponent<Image>();
@@ -29,7 +29,12 @@ public class DialogManagement : MonoBehaviour
         characterDialog.text = dialog.dialogText[dialogIndex];
     }
 
-    public void NextLine()
+    private void Update()//ADDED
+    {
+        NextLine();
+    }
+
+    /*public void NextLineClick()
     {
         dialogIndex++;
         if(dialogIndex < dialog.dialogText.Length)
@@ -41,7 +46,25 @@ public class DialogManagement : MonoBehaviour
         /*else
         {
             prefabDialog.SetActive(false);
-        }*/
+        }
+    }*/
+
+    void NextLine()//ADDED
+    {
+        if (prefabDialog.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
+        {
+            dialogIndex++;
+            if (dialogIndex < dialog.dialogText.Length)
+            {
+                characterDialog.text = dialog.dialogText[dialogIndex];
+            }
+
+        }
+        if(dialogIndex == dialog.dialogText.Length)
+        {
+            prefabDialog.SetActive(false);
+            dialogIndex = 0;
+        }
     }
 
 }

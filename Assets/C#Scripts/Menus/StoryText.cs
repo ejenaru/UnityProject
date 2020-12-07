@@ -49,7 +49,7 @@ public class StoryText : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && controlador)
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E) && controlador)
         {
             //audiosourceclic.clip = clic;
             //audiosourceclic.Play();

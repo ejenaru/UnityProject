@@ -2,32 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PanelDos : MonoBehaviour
 {
 
-    public DialogManagement dialogManagement;
-    public DialogScriptable dialog;
     public GameObject dialogPrefab;
+    public InteractionScriptable interactionScriptable;
+    public GameObject panelStory;
+
+    bool FinDialogo = false; //Booleano que controla que no se meta en el update antes de que se desactive el dialogo
+    bool controladorCorrutina = false; //Controlador para que no se meta más de una vez en la corrutina
+    bool nextScene = false; //Controlador para determinar que ya ha terminado la escena
 
 
     private void Start()
     {
-        dialogPrefab.SetActive(false);
         StartCoroutine(LoadDialog());
     }
-
-    public void NextScene()
+    private void Update()
     {
-        if (dialogManagement.dialogIndex == dialog.dialogText.Length)
+        if(FinDialogo && !dialogPrefab.activeInHierarchy)
         {
-            SceneManager.LoadScene(1);
+            if (!controladorCorrutina)
+            {
+                StartCoroutine(FadePanelOut(panelStory.GetComponent<Image>()));
+            }
+            
+            if (nextScene)
+            {
+                SceneManager.LoadScene(1);
+            }
+
         }
     }
+
 
     IEnumerator LoadDialog()
     {
         yield return new WaitForSeconds(3);
         dialogPrefab.SetActive(true);
+        PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScriptable);
+        FinDialogo = true;
     }
+
+    IEnumerator FadePanelOut(Image panelFade)
+    {
+        controladorCorrutina = true;
+        Color textoColorPanel = panelFade.color;
+
+        while (textoColorPanel.a < 1)
+        {
+            textoColorPanel.a += 0.1f;
+            panelFade.color = textoColorPanel;
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(3);
+        controladorCorrutina = false;
+        nextScene = true;
+    }
+
 }

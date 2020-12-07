@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class TriggerInteraction : MonoBehaviour
 {
     public GameObject dialogPrefab;
-    public InteractionScriptable interaction;
+    public InteractionScriptable interactionScriptable;
+    public GameObject clickToInteract;
 
     bool playerTrigger;
 
@@ -15,6 +16,7 @@ public class TriggerInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerTrigger = true;
+            clickToInteract.SetActive(true);
         }
     }
 
@@ -23,14 +25,17 @@ public class TriggerInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerTrigger = false;
+            clickToInteract.SetActive(false);
         }
     }
+
     private void Update()
     {
-        if(playerTrigger && Input.GetKeyDown(KeyCode.E))
+        if(playerTrigger && Input.GetKeyDown(KeyCode.E) && !dialogPrefab.activeInHierarchy)
         {
+            clickToInteract.SetActive(false);
             dialogPrefab.SetActive(true);
-            GameObject.FindGameObjectWithTag("Text").GetComponent<Text>().text = interaction.interaction;
+            PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScriptable);
         }
     }
 

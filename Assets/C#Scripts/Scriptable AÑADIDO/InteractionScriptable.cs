@@ -7,5 +7,7 @@ using UnityEngine.UI;
 public class InteractionScriptable : ScriptableObject
 {
     [TextArea(3,5)]
-    public string interaction;
+    public string[] interaction;
+    public Sprite characterFace;
+    public string characterName;
 }

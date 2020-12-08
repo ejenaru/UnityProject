@@ -32,6 +32,7 @@ public class DialogManagement : MonoBehaviour
     private void Update()//ADDED
     {
         NextLine();
+        
     }
 
     /*public void NextLineClick()
@@ -53,10 +54,16 @@ public class DialogManagement : MonoBehaviour
     {
         if (prefabDialog.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
         {
+            
             dialogIndex++;
+           
+
             if (dialogIndex < dialog.dialogText.Length)
             {
+                
                 characterDialog.text = dialog.dialogText[dialogIndex];
+                
+
             }
 
         }

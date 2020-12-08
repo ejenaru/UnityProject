@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControllerFRONT : MonoBehaviour 
+public class PlayerControllerFRONT : MonoBehaviour
 {
     //-------------MOVEMENT-------------
     float movH;
@@ -25,6 +25,7 @@ public class PlayerControllerFRONT : MonoBehaviour
     public SpriteRenderer sprite;
     public Animator anim;
     Vector2 lookDirection = new Vector2(1, 0);
+
 
     void Start()
     {
@@ -79,8 +80,9 @@ public class PlayerControllerFRONT : MonoBehaviour
             LootManager.loot.AddKeyNumber();
             other.gameObject.SetActive(false);
             GameManager.manager.keyText.text = LootManager.loot.keyNumber.ToString();
+            AudioController.audioManager.Coin();
         }
-    
+
     }
     private void OnCollisionExit2D(Collision2D other)
     {
@@ -89,7 +91,7 @@ public class PlayerControllerFRONT : MonoBehaviour
             transform.SetParent(null);
         }
     }
-   
+
 
 
 
@@ -131,7 +133,7 @@ public class PlayerControllerFRONT : MonoBehaviour
         Vector2 direction;
         if (canIShoot) //para la cadencia
         {
-            
+
             //entra si disparo en horizontal y vertical es 0
             if ((shootV == 0 && shootH != 0) ||
                 // entra si estoy en suelo y disparo para arriba
@@ -141,13 +143,16 @@ public class PlayerControllerFRONT : MonoBehaviour
             {
                 //dispara en horizontal
                 direction = new Vector2(shootH, shootV).normalized;
-                if (_bullet!= null) //y tiene la tag bullet
+                if (_bullet != null) //y tiene la tag bullet
                 {
+
                     print("bullet !=null");
                     _bullet.transform.position = transform.position;
                     _bullet.transform.rotation = transform.rotation;
                     _bullet.SetActive(true);
                     _bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+                    
+
                 }
                 
                 timeLastShoot = Time.time;
@@ -161,24 +166,26 @@ public class PlayerControllerFRONT : MonoBehaviour
                     _bullet.transform.rotation = transform.rotation;
                     _bullet.SetActive(true);
                     _bullet.GetComponent<Rigidbody2D>().velocity = direction * force;
+
                 }
                 
                 timeLastShoot = Time.time;
             }
-            
+
         }
     }
 
     //esta función CAMBIA la direccion de la gravedad del personaje que lo lleva 
-    public void ChangeGravity() 
+    public void ChangeGravity()
     {
-        
+
         sprite.flipY = !sprite.flipY;
         rigidBod.gravityScale *= -1; //cambiar el signo
         //devuelve un booleano diciendo si la gravedad está activa o no, puede servir más adelante para darle la vuelta a la animación 
         //cuando esté boca abajo o para disparar
         isGravityPositive = !isGravityPositive;
-        canIChangeGravity = false;
         AudioController.audioManager.GravityChange();
+        canIChangeGravity = false;
+
     }
 }

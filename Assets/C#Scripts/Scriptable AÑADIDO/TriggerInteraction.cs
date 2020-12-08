@@ -33,10 +33,12 @@ public class TriggerInteraction : MonoBehaviour
     {
         if(playerTrigger && Input.GetKeyDown(KeyCode.E) && !dialogPrefab.activeInHierarchy)
         {
+            AudioController.audioManager.OpenDialogue();
             GameManager.manager.SetGameDialog();
             clickToInteract.SetActive(false);
             dialogPrefab.SetActive(true);
             PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScriptable);
+           
         }
     }
 

@@ -31,7 +31,14 @@ public class AudioController : MonoBehaviour
 
         UIAudios = UIAudio.GetComponents<AudioSource>();
         click = UIAudios[0];
-
+        gravityChange = UIAudios[1];
+        openDialogue = UIAudios[2];
+        dialogueSens = UIAudios[4];
+        shootPlayer = UIAudios[5];
+        coin = UIAudios[6];
+        deathSpikes = UIAudios[7];
+        bossHurt = UIAudios[8];
+        bossDeaht = UIAudios[9];
         //UIMusics = ... 
 
     }
@@ -41,29 +48,6 @@ public class AudioController : MonoBehaviour
     {
         if (!click.isPlaying)
             click.Play();
-    }
-    public void Blacksmith()
-    {
-        if (!blackSmith.isPlaying)
-            blackSmith.Play();
-    }
-
-    public void KnockDoor()
-    {
-        if (!door.isPlaying)
-            door.Play();
-    }
-
-    public void DialogueSens()
-    {
-        if (!dialogueSens.isPlaying)
-            dialogueSens.Play();
-    }
-
-    public void Birds()
-    {
-        if (!birds.isPlaying)
-            birds.Play();
     }
 
     public void OpenDialogue()
@@ -87,12 +71,6 @@ public class AudioController : MonoBehaviour
     {
         if (!coin.isPlaying)
             coin.Play();
-    }
-
-    public void Key()
-    {
-        if (!key.isPlaying)
-            key.Play();
     }
 
     public void ShootPlayer()

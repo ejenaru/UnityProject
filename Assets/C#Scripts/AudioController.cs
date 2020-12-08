@@ -31,14 +31,14 @@ public class AudioController : MonoBehaviour
 
         UIAudios = UIAudio.GetComponents<AudioSource>();
         click = UIAudios[0];
-        gravityChange = UIAudios[1];
-        openDialogue = UIAudios[2];
-        dialogueSens = UIAudios[4];
-        shootPlayer = UIAudios[5];
-        coin = UIAudios[6];
-        deathSpikes = UIAudios[7];
-        bossHurt = UIAudios[8];
-        bossDeaht = UIAudios[9];
+        openDialogue = UIAudios[1];
+        gravityChange = UIAudios[2];
+        dialogueSens = UIAudios[3];
+        shootPlayer = UIAudios[4];
+        coin = UIAudios[5];
+        deathSpikes = UIAudios[6];
+        bossHurt = UIAudios[7];
+        bossDeaht = UIAudios[8];
         //UIMusics = ... 
 
     }

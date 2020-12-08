@@ -18,6 +18,7 @@ public class ChangeCameraRoom : MonoBehaviour
 
     //-----Require KEY -----
     public bool keyRequired; //esta va publica para editarla en el editor
+    public bool zoomBig;
     
     
     void Start()
@@ -54,9 +55,28 @@ public class ChangeCameraRoom : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             camFollow.SetPosition(DestinationRoom); //Coje la habitación hacia la que va y la setea
-            other.attachedRigidbody.position+= new Vector2(destinationPlayer.x, destinationPlayer.y); //Aplica al player un movimiento
+            other.transform.position+= new Vector3(destinationPlayer.x, destinationPlayer.y,0); //Aplica al player un movimiento
+            if (this.name.Equals("GIANT"))
+            {
+                StartCoroutine(ZoomCamera(10, 18, 0.5f, 200));
+            }
+            else if (this.name.Equals("SMALL"))
+                StartCoroutine(ZoomCamera(18, 10, 0.5f, 200));
+
         }   
     }
+    IEnumerator ZoomCamera(float from, float to, float time, float steps)
+    {
+        float f = 0;
 
+        while (f <= 1)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(from, to, f);
+
+            f += 1f / steps;
+
+            yield return new WaitForSeconds(time / steps);
+        }
+    }
 
 }

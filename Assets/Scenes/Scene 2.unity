@@ -8658,7 +8658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: 0
   levelToLoad: 3
-  playerLoad: {x: 6, y: 6, z: 0}
+  playerLoad: {x: 0, y: 1.8, z: 0}
   cameraLoad: {x: 0, y: 0, z: -10}
 --- !u!1 &533456243
 GameObject:
@@ -37199,6 +37199,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &3703829591298469193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37340,6 +37341,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &3703829591867804458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37606,6 +37608,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &5474173783601434673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37733,6 +37736,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173783613514585
 Transform:
   m_ObjectHideFlags: 0
@@ -37860,6 +37864,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173783691364585
 Transform:
   m_ObjectHideFlags: 0
@@ -38063,6 +38068,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173783707087812
 Transform:
   m_ObjectHideFlags: 0
@@ -38173,6 +38179,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!212 &5474173784151804311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38300,6 +38307,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!212 &5474173784191982567
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38401,6 +38409,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &5474173784233364261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38604,6 +38613,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173784563455882
 Transform:
   m_ObjectHideFlags: 0
@@ -38705,6 +38715,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173784656146421
 Transform:
   m_ObjectHideFlags: 0
@@ -38846,6 +38857,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &5474173784733576518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38959,6 +38971,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173784765529477
 Transform:
   m_ObjectHideFlags: 0
@@ -39162,6 +39175,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173784970335503
 Transform:
   m_ObjectHideFlags: 0
@@ -39272,6 +39286,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &5474173785179518546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39411,6 +39426,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!212 &5474173785193743675
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39538,6 +39554,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!212 &5474173785267416715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39715,6 +39732,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &5474173785352263075
 Transform:
   m_ObjectHideFlags: 0
@@ -39977,6 +39995,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452826941025709
 Transform:
   m_ObjectHideFlags: 0
@@ -40161,6 +40180,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452827007147067
 Transform:
   m_ObjectHideFlags: 0
@@ -40321,6 +40341,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452827074184024
 Transform:
   m_ObjectHideFlags: 0
@@ -40454,6 +40475,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &7042452827140367391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40625,6 +40647,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452827289605495
 Transform:
   m_ObjectHideFlags: 0
@@ -40740,6 +40763,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!61 &7042452827519651503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40843,6 +40867,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!212 &7042452827531056055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40930,6 +40955,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452827572292181
 Transform:
   m_ObjectHideFlags: 0
@@ -41179,6 +41205,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452827796042512
 Transform:
   m_ObjectHideFlags: 0
@@ -41306,6 +41333,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!1 &7042452828026153161
 GameObject:
   m_ObjectHideFlags: 0
@@ -41433,6 +41461,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452828074601522
 Transform:
   m_ObjectHideFlags: 0
@@ -41510,6 +41539,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!212 &7042452828074601527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41597,6 +41627,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452828100474325
 Transform:
   m_ObjectHideFlags: 0
@@ -41860,6 +41891,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!212 &7042452828588297167
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42023,6 +42055,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452828616224975
 Transform:
   m_ObjectHideFlags: 0
@@ -42131,6 +42164,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceMovePlayer: 2
   keyRequired: 0
+  zoomBig: 0
 --- !u!4 &7042452828648143452
 Transform:
   m_ObjectHideFlags: 0

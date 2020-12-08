@@ -2061,10 +2061,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frasesHistoria:
-  - Mi hermano...
-  - "...muri\xF3 aquel d\xEDa..."
-  - ...y yo...
-  - "...volv\xED a la vida"
+  - El mundo tal y como lo conocemos...
+  - "...est\xE1 a punto de desaparecer"
+  - "Nuestra dimensi\xF3n no volver\xE1 a ser lo mismo"
   textoHistoria: {fileID: 572106757}
   clickToNextLine: {fileID: 2047354883}
   panelStory: {fileID: 507840646}
@@ -4168,6 +4167,18 @@ MonoBehaviour:
   UIAudios:
   - {fileID: 0}
   click: {fileID: 0}
+  deathSpikes: {fileID: 0}
+  gravityChange: {fileID: 0}
+  coin: {fileID: 0}
+  key: {fileID: 0}
+  blackSmith: {fileID: 0}
+  door: {fileID: 0}
+  dialogueSens: {fileID: 0}
+  birds: {fileID: 0}
+  openDialogue: {fileID: 0}
+  shootPlayer: {fileID: 0}
+  bossHurt: {fileID: 0}
+  bossDeaht: {fileID: 0}
 --- !u!4 &1224308366
 Transform:
   m_ObjectHideFlags: 0
@@ -4244,7 +4255,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   player: {fileID: 0}
   PlayerPrefab: {fileID: 0}
-  sceneStartPosition: {x: 0, y: 0, z: 0}
+  playerStartPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   currentScene: 0
   pauseCanvas: {fileID: 0}
@@ -6293,7 +6304,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pulse 'Click izquierdo' o la tecla "E" para continuar
+  m_Text: Pulse la tecla "E" para continuar
 --- !u!1 &2095424732
 GameObject:
   m_ObjectHideFlags: 0

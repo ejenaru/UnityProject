@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class PanelDos : MonoBehaviour
 {
+    //a
+    public static PanelDos panelDos;
+    //b
+
 
     public GameObject dialogPrefab;
     public InteractionScriptable interactionScriptable;
@@ -33,6 +37,7 @@ public class PanelDos : MonoBehaviour
             {
                 GameManager.manager.SetGameDialog();
                 SceneManager.LoadScene(1);
+                nextScene = false;
             }
 
         }
@@ -47,7 +52,7 @@ public class PanelDos : MonoBehaviour
         FinDialogo = true;
     }
 
-    IEnumerator FadePanelOut(Image panelFade)
+    public IEnumerator FadePanelOut(Image panelFade)
     {
         controladorCorrutina = true;
         Color textoColorPanel = panelFade.color;

@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour
     public Vector3 cameraPosition;
     public int currentScene;
 
-    //variables de estado 
+    //------ESTADO GAME---------
     private bool gamePause = false;
+    private bool dialogState = false;
     public GameObject pauseCanvas;
     public GameObject canvas;
     GameObject pauseObject = null;
@@ -127,6 +128,20 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region dialogState
+    public void SetGameDialog()
+    {
+        dialogState = !dialogState;
+        //activar canvas de pausa
+
+        
+    }
+
+    public bool GetDialogState()
+    {
+        return dialogState;
+    }
+    #endregion
 
 
     #region SavePoint
@@ -140,11 +155,12 @@ public class GameManager : MonoBehaviour
 
 
 
-    private void KillPlayer()
+    public void KillPlayer()
     {
+        print("KILL PLAYER");
         Destroy(player);
         player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
-        cam.GetComponent<CameraFollowFRONT>().ResetCameraPosition();
+        //cam.GetComponent<CameraFollowTOP>().ResetCameraPosition();
 
 
     }

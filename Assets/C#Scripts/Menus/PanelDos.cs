@@ -31,6 +31,7 @@ public class PanelDos : MonoBehaviour
             
             if (nextScene)
             {
+                GameManager.manager.SetGameDialog();
                 SceneManager.LoadScene(1);
             }
 

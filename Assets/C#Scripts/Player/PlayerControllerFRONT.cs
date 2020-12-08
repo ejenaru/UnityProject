@@ -36,16 +36,23 @@ public class PlayerControllerFRONT : MonoBehaviour
 
     void Update()
     {
-        //---INPUTS---
-        movH = Input.GetAxisRaw("Horizontal");
-        shootH = Input.GetAxisRaw("HorizontalShoot");
-        shootV = Input.GetAxisRaw("VerticalShoot");
-        //----TIME related----
-        timeNow = Time.time;
-        //----Funtions----
-        if (Input.GetButtonDown("Jump") && canIChangeGravity) ChangeGravity(); 
 
-        ShootFront("Bullet1");
+        if (!GameManager.manager.GetDialogState())
+        {
+            //---INPUTS---
+            movH = Input.GetAxisRaw("Horizontal");
+            shootH = Input.GetAxisRaw("HorizontalShoot");
+            shootV = Input.GetAxisRaw("VerticalShoot");
+            //----SHOOT----
+            timeNow = Time.time;
+            ShootFront("Bullet");
+            //----BUTTONS----
+            if (Input.GetButtonDown("Jump") && canIChangeGravity) ChangeGravity();
+            //------DEATHS----------
+        }
+
+
+
     }
 
     private void FixedUpdate()
@@ -57,33 +64,32 @@ public class PlayerControllerFRONT : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         //--Gravity--
-        if (other.gameObject.tag == "Scenario") canIChangeGravity = true;
+        if (other.gameObject.tag.Equals("Scenario") || other.gameObject.tag.Equals("Platform"))
+            canIChangeGravity = true;
+        if (other.gameObject.tag.Equals("Platform"))
+        {
+            transform.SetParent(other.transform);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag.Equals("Key"))
         {
             print("TOCANDO MONEDA");
-            //GameManager.manager.loot.keyNumber++;
-            //GameManager.manager.AddKeyNumber();
             LootManager.loot.AddKeyNumber();
             other.gameObject.SetActive(false);
             GameManager.manager.keyText.text = LootManager.loot.keyNumber.ToString();
         }
     
-        if (other.tag.Equals("Platform"))
-        {
-            transform.SetParent(other.transform);
-        }
     }
-
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.tag.Equals("Platform"))
+        if (other.gameObject.tag.Equals("Platform"))
         {
             transform.SetParent(null);
         }
     }
+   
 
 
 

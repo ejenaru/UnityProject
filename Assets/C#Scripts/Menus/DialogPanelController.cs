@@ -31,11 +31,12 @@ public class DialogPanelController : MonoBehaviour
     {
         if (isDialogState && Input.GetKeyDown(KeyCode.E))
         {
+           
             headImage.sprite = headImages[dialogPosition];
             headName.text = headNames[dialogPosition];
             dialogText.text = dialogTexts[dialogPosition];
             dialogPosition++;
-           
+
         }
     }
 

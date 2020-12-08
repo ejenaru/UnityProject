@@ -18,6 +18,7 @@ TagManager:
   - ToRoom
   - ToDungeon
   - Platform
+  - Spikes
   layers:
   - Default
   - TransparentFX

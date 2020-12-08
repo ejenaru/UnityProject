@@ -17,4 +17,10 @@ public class PlayerHealth : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag.Equals("Spikes"))
+            GameManager.manager.KillPlayer();
+    }
 }

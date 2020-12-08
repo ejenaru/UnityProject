@@ -36,7 +36,8 @@ public class PlayerControllerTOP : MonoBehaviour
     void Update()
     {
         //----INPUTS----
-        if (GameManager.manager.GetGamePause() == false)
+        
+            if (!GameManager.manager.GetGamePause() && !GameManager.manager.GetDialogState())
         {
             movH = Input.GetAxisRaw("Horizontal");
             movV = Input.GetAxisRaw("Vertical");

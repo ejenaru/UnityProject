@@ -40,6 +40,7 @@ public class PrefabDialog : MonoBehaviour
             }
             else
             {
+                GameManager.manager.SetGameDialog();
                 this.gameObject.SetActive(false);
             }
         }

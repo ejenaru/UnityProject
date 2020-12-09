@@ -42,9 +42,15 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
         player = GameObject.FindWithTag("Player");
-        
+
+
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    dialogState = false;
+    //}
+
     void Start() //esto tiene que ir en start porque si no no encuentra el loot, que se asigna en awake no se si estará bien o me dará mas fallos
     {
         cameraPosition = new Vector3(0, 0, -10);
@@ -69,20 +75,10 @@ public class GameManager : MonoBehaviour
 
     {
 
-        //aqui hacemos el fade para la pantalla de carga.
-
         currentScene = SceneManager.GetActiveScene().buildIndex; //devuelve en nº de escena y lo guarda 
         //hacer aqui una tansicion a negro y despues cargar la escena
 
         SceneManager.LoadScene(sceneToLoad);
-
-        /*switch (sceneType)
-        {
-            case Dunge
-
-            ca
-        }*/
-
 
     }
 

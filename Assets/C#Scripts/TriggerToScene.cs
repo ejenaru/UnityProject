@@ -26,12 +26,14 @@ public class TriggerToScene : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     //private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("nombre de other: " + other.name);
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log(scene);
             switch (scene)
             {
                 case sceneType.instant:
-
+                    Debug.Log("NEXT SCENE:  " + nextScene);
                     //Añadido el fade
                     if (!controladorCorrutina)
                     {
@@ -39,13 +41,14 @@ public class TriggerToScene : MonoBehaviour
                         StartCoroutine(FadePanelOut(fadeImage));
                     }
 
-                    if (nextScene)
-                    {
-                        nextScene = false;
-                        GameManager.manager.playerStartPosition = playerLoad;
-                        GameManager.manager.cameraPosition = cameraLoad;
-                        GameManager.manager.LoadLevel(levelToLoad);
-                    }
+                    //if (nextScene)
+                    //{
+                    //    //controladorCorrutina = false;
+                    //    //nextScene = false;
+                    //    //GameManager.manager.playerStartPosition = playerLoad;
+                    //    //GameManager.manager.cameraPosition = cameraLoad;
+                    //    //GameManager.manager.LoadLevel(levelToLoad);
+                    //}
                     break;
 
                 case sceneType.requireButton:
@@ -56,16 +59,15 @@ public class TriggerToScene : MonoBehaviour
                             Image fadeImage = panelFade.GetComponent<Image>();
                             StartCoroutine(FadePanelOut(fadeImage));
                         }
-
                     }
-                    if (nextScene)
-                    {
-                        print("Action");
-                        nextScene = false;
-                        GameManager.manager.playerStartPosition = playerLoad;
-                        GameManager.manager.cameraPosition = cameraLoad;
-                        GameManager.manager.LoadLevel(levelToLoad);
-                    }
+                    //if (nextScene)
+                    //{
+                    //    print("Action");
+                    //    nextScene = false;
+                    //    GameManager.manager.playerStartPosition = playerLoad;
+                    //    GameManager.manager.cameraPosition = cameraLoad;
+                    //    GameManager.manager.LoadLevel(levelToLoad);
+                    //}
                     break;
 
 
@@ -86,10 +88,18 @@ public class TriggerToScene : MonoBehaviour
             panelFade.color = textoColorPanel;
             yield return new WaitForSeconds(0.1f);
         }
-        Debug.Log("Final corrutina");
-        controladorCorrutina = false;
+        //Debug.Log("Final corrutina");
+        
         nextScene = true;
-        GameManager.manager.SetGameDialog();
+        //Debug.Log("NEXT SCENE (fade): " + nextScene);
+        controladorCorrutina = false;
+        nextScene = false;
+        GameManager.manager.playerStartPosition = playerLoad;
+        GameManager.manager.cameraPosition = cameraLoad;
         yield return new WaitForSeconds(3);
+        GameManager.manager.SetGameDialog();
+        
+        GameManager.manager.LoadLevel(levelToLoad);
+
     }
 }

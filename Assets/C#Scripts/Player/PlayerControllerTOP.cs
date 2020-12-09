@@ -77,9 +77,9 @@ public class PlayerControllerTOP : MonoBehaviour
             lookDirection.Normalize();
 
 
-            Debug.Log("Maths if movH:" + _movH + ", movV" + _movV +
-                ", shootH" + shootH + ",ShootV" + shootV + ", lookX " +
-                lookDirection.x + ", lookY" + lookDirection.y + "");
+            //Debug.Log("Maths if movH:" + _movH + ", movV" + _movV +
+            //    ", shootH" + shootH + ",ShootV" + shootV + ", lookX " +
+            //    lookDirection.x + ", lookY" + lookDirection.y + "");
         }
 
 

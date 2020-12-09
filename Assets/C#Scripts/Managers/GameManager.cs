@@ -14,11 +14,11 @@ public class GameManager : MonoBehaviour
 
     //-------PLAYER PREFS------
     public GameObject player;
-    public GameObject PlayerPrefab;
     //-------GUARDAR AL CAMBIAR DE ROOM----
     private Vector3 initialPosition = new Vector3(-0.5f, 2f, 0);
     public Vector3 playerStartPosition; //La posición que toma el personaje al pasar por el trigger
     public Vector3 cameraPosition;
+    public GameObject roomKilled;
     public int currentScene;
 
     //------ESTADO GAME---------
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private bool dialogState = false;
     public bool bossKilled = false;
     public GameObject pauseCanvas;
+    public GameObject gameOverCanvas;
     public GameObject canvas;
     GameObject pauseObject = null;
 
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
+        cam = Camera.main.gameObject;
         manager = this; //singletone
         DontDestroyOnLoad(this.gameObject);
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
@@ -157,8 +158,9 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region SavePoint
-    public void UpdateSavePoint(Vector3 newPosition)
+    public void UpdateSavePoint(Vector3 newPosition, GameObject room)
     {
+        roomKilled = room;
         playerStartPosition = new Vector3(newPosition.x, newPosition.y, 0);   //ponemos la Z a 0 porque el sistema de particulas está en z=-12
     }
 
@@ -170,11 +172,21 @@ public class GameManager : MonoBehaviour
     public void KillPlayer()
     {
         print("KILL PLAYER");
-        Destroy(player);
-        player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
-        //cam.GetComponent<CameraFollowTOP>().ResetCameraPosition();
+        player.SetActive(false);
+        gameOverCanvas.SetActive(true);
+        //activar panel
 
 
+
+    }
+    public void RestartFromSavePoint()
+    {
+        player.transform.position = playerStartPosition;
+        player.SetActive(true);
+        //player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
+        cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);
+        player.GetComponent<PlayerHealth>().ReturnToHalfLife();
+        gameOverCanvas.SetActive(false);
     }
 
 

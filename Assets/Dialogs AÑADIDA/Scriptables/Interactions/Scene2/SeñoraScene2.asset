@@ -15,7 +15,7 @@ MonoBehaviour:
   interaction:
   - Muchas personas han abandonado el pueblo
   - Me pregunto cual es la razon de su marcha
-  - "Tal vez yo tambi\xE9n deberia irme"
+  - Tal vez yo tambien deberia irme
   characterFace: {fileID: 7042348869349113295, guid: b006cba54609bb04984e2d229a3b3a09,
     type: 3}
   characterName: Leticia

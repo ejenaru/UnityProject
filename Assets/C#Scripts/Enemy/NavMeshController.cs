@@ -25,6 +25,7 @@ public class NavMeshController : MonoBehaviour
 
 	void Update()
 	{
+		if (targetPlayer == null) targetPlayer = GameManager.manager.player.transform;
 		if (actualTarget != null && ai != null) ai.destination = actualTarget.position;
       
 	}

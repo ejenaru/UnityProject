@@ -196,21 +196,22 @@ public class GameManager : MonoBehaviour
         gameOverCanvas.SetActive(true);
         //activar panel
 
-        player.transform.position = playerStartPosition;
-        player.SetActive(true);
-
-        //player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
-        cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);
-
-    }
-    public void RestartFromSavePoint()
-    {
         //player.transform.position = playerStartPosition;
         //player.SetActive(true);
 
         //player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
         //cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);
-        //player.GetComponent<PlayerHealth>().ReturnToHalfLife();
+
+    }
+    public void RestartFromSavePoint()
+    {
+        player.SetActive(true);
+        player.transform.position = playerStartPosition;
+
+
+        //player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
+        cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);
+        player.GetComponent<PlayerHealth>().ReturnToHalfLife();
         gameOverCanvas.SetActive(false);
     }
 

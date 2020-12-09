@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TriggerInteraction : MonoBehaviour
 {
-    public GameObject dialogPrefab;
-    public InteractionScriptable interactionScriptable;
+    public GameObject dialogScene;
+    public InteractionScriptable interactionScene, interactionEndGame;
     public GameObject clickToInteract;
 
     bool playerTrigger;
@@ -31,14 +31,23 @@ public class TriggerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if(playerTrigger && Input.GetKeyDown(KeyCode.E) && !dialogPrefab.activeInHierarchy)
+        if(playerTrigger && Input.GetKeyDown(KeyCode.E) && !dialogScene.activeInHierarchy)
         {
+           
             AudioController.audioManager.OpenDialogue();
             GameManager.manager.SetGameDialog();
             clickToInteract.SetActive(false);
-            dialogPrefab.SetActive(true);
-            PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScriptable);
-           
+            dialogScene.SetActive(true);
+            if (GameManager.manager.GetBossKilled())
+            {
+                PrefabDialog.prefabDialogScript.takeScriptable(this.interactionEndGame);
+                //Dialogo de fin de juego Y FIN DE JUEGO
+            }
+            else PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScene);
+
+
+
+
         }
     }
 

@@ -206,6 +206,7 @@ MonoBehaviour:
   playerStartPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   currentScene: 0
+  bossKilled: 0
   pauseCanvas: {fileID: 0}
   canvas: {fileID: 0}
   keyText: {fileID: 0}
@@ -656,9 +657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: c06943cd7d2006d44893301eb3ffd4ef,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: c06943cd7d2006d44893301eb3ffd4ef, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 0aa4785d4709b024490d86f474207ef5, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!61 &118256779
 BoxCollider2D:
@@ -787,9 +788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!61 &138329390
 BoxCollider2D:
@@ -1102,9 +1103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &243791168
 GameObject:
@@ -2536,9 +2537,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &340078823
 GameObject:
@@ -2763,9 +2764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &411903598
 GameObject:
@@ -8672,9 +8673,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &525895503
 GameObject:
@@ -8843,9 +8844,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!61 &563782980
 BoxCollider2D:
@@ -9966,9 +9967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &786722249
 GameObject:
@@ -14513,9 +14514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &845578789
 GameObject:
@@ -16900,9 +16901,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: c042ee5e2677f644289f5bec83a03b8d, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &945311160
 GameObject:
@@ -18540,9 +18541,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: c039b6b25b0da504f9e7845c44199c31,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: c039b6b25b0da504f9e7845c44199c31, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: c039b6b25b0da504f9e7845c44199c31, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!61 &1237827171
 BoxCollider2D:
@@ -18823,8 +18824,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1075238783
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -4365678376696325385, guid: b006cba54609bb04984e2d229a3b3a09,
     type: 3}
@@ -18906,9 +18907,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 0fa244170a2baae4482dc736484753ca,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 0fa244170a2baae4482dc736484753ca, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: dff7deecdb512e94f8c1f62e844f5072, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &1322276637
 GameObject:
@@ -23627,9 +23628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &1404560814
 GameObject:
@@ -23900,9 +23901,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!61 &1452684915
 BoxCollider2D:
@@ -24168,9 +24169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &1488272446
 GameObject:
@@ -28767,9 +28768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &1514753794
 GameObject:
@@ -29002,9 +29003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 888f62cf590ebef459b30d6d71ddb8ab,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &1565196262
 GameObject:
@@ -34687,9 +34688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!61 &1903062160
 BoxCollider2D:
@@ -34814,9 +34815,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 255218767}
-  interactionScriptable: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5,
-    type: 2}
+  dialogScene: {fileID: 255218767}
+  interactionScene: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 5487bec8401ec2e46b9d1fa2c92edec5, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!1 &1918232361
 GameObject:

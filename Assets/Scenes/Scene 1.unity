@@ -250,9 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 1167567994}
-  interactionScriptable: {fileID: 11400000, guid: 358605a56dac7fb43afe74c530f800b5,
-    type: 2}
+  dialogScene: {fileID: 1167567994}
+  interactionScene: {fileID: 11400000, guid: 358605a56dac7fb43afe74c530f800b5, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 358605a56dac7fb43afe74c530f800b5, type: 2}
   clickToInteract: {fileID: 3608438768634018488}
 --- !u!1 &293886776
 GameObject:
@@ -971,9 +971,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 1167567994}
-  interactionScriptable: {fileID: 11400000, guid: 938745ad6ad63284fa0842d79e53772b,
-    type: 2}
+  dialogScene: {fileID: 1167567994}
+  interactionScene: {fileID: 11400000, guid: 938745ad6ad63284fa0842d79e53772b, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 938745ad6ad63284fa0842d79e53772b, type: 2}
   clickToInteract: {fileID: 3608438768634018488}
 --- !u!1 &661587667
 GameObject:
@@ -1990,6 +1990,7 @@ MonoBehaviour:
   playerStartPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   currentScene: 0
+  bossKilled: 0
   pauseCanvas: {fileID: 0}
   canvas: {fileID: 0}
   keyText: {fileID: 0}
@@ -2180,9 +2181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 1167567994}
-  interactionScriptable: {fileID: 11400000, guid: fd109dc0f80cc4946b832d20ddef2797,
-    type: 2}
+  dialogScene: {fileID: 1167567994}
+  interactionScene: {fileID: 11400000, guid: fd109dc0f80cc4946b832d20ddef2797, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: fd109dc0f80cc4946b832d20ddef2797, type: 2}
   clickToInteract: {fileID: 3608438768634018488}
 --- !u!61 &1074249519
 BoxCollider2D:
@@ -2280,9 +2281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 1167567994}
-  interactionScriptable: {fileID: 11400000, guid: b770da600b1b4ee4497a2f145c9c4cc4,
-    type: 2}
+  dialogScene: {fileID: 1167567994}
+  interactionScene: {fileID: 11400000, guid: b770da600b1b4ee4497a2f145c9c4cc4, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: b770da600b1b4ee4497a2f145c9c4cc4, type: 2}
   clickToInteract: {fileID: 3608438768634018488}
 --- !u!1 &1123596865
 GameObject:
@@ -5777,9 +5778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc2eb66a78d5b840bbfa39ed4e69daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 1167567994}
-  interactionScriptable: {fileID: 11400000, guid: a089c1b0b1ba59e4f91ee334feb8dd75,
-    type: 2}
+  dialogScene: {fileID: 1167567994}
+  interactionScene: {fileID: 11400000, guid: a089c1b0b1ba59e4f91ee334feb8dd75, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: a089c1b0b1ba59e4f91ee334feb8dd75, type: 2}
   clickToInteract: {fileID: 3608438768634018488}
 --- !u!61 &1867578380
 BoxCollider2D:

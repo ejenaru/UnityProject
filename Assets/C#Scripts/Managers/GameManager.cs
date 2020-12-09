@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     //------ESTADO GAME---------
     private bool gamePause = false;
     private bool dialogState = false;
+    public bool bossKilled = false;
     public GameObject pauseCanvas;
     public GameObject canvas;
     GameObject pauseObject = null;
@@ -143,6 +144,21 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+
+    #region KillBoss
+    public void SetBossKilled()
+    {
+        bossKilled = !bossKilled;
+        //activar canvas de pausa
+
+
+    }
+
+    public bool GetBossKilled()
+    {
+        return bossKilled;
+    }
+    #endregion
 
     #region SavePoint
     public void UpdateSavePoint(Vector3 newPosition)

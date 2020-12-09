@@ -5034,6 +5034,7 @@ MonoBehaviour:
   playerStartPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   currentScene: 0
+  bossKilled: 0
   pauseCanvas: {fileID: 0}
   canvas: {fileID: 0}
   keyText: {fileID: 0}

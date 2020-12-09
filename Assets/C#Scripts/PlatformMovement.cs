@@ -34,24 +34,24 @@ public class PlatformMovement : MonoBehaviour
     }
     IEnumerator Move()
     {
-        print("INICIO MOVE()");
+       
         while (true) //podria meter una condicion para compaginarla con la otra plataforma.
         {
             for (int i = 0; i < 100; i++)
             {
                 this.gameObject.transform.position += new Vector3((distance / 100), 0);
-                Debug.Log("{0} DENTRO AVANZAR" + i);
+               
 
                 yield return new WaitForSeconds(1 * Time.deltaTime);
             }
             for (int i = 0; i < 100; i++)
             {
                 this.gameObject.transform.position -= new Vector3((distance / 100), 0);
-                Debug.Log("{0} DENTRO RETROCEDER" + i);
+                
 
                 yield return new WaitForSeconds(1 * Time.deltaTime);
             }
-            print("FUERA DE BUCLE FOR");
+            
 
 
         }

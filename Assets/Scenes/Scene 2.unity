@@ -8845,8 +8845,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogScene: {fileID: 255218767}
-  interactionScene: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d, type: 2}
-  interactionEndGame: {fileID: 11400000, guid: ab8faf56ace41d444b135eff6b2cbb8d, type: 2}
+  interactionScene: {fileID: 11400000, guid: 2cc997dbd31ec17479f5208996d4eb0c, type: 2}
+  interactionEndGame: {fileID: 11400000, guid: 2cc997dbd31ec17479f5208996d4eb0c, type: 2}
   clickToInteract: {fileID: 1335159435}
 --- !u!61 &563782980
 BoxCollider2D:

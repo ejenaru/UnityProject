@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &10710408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,13 +201,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   player: {fileID: 0}
-  PlayerPrefab: {fileID: 4976861627383093416, guid: be1877119884b064ca1b52e2bfdf4437,
-    type: 3}
   playerStartPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
+  roomKilled: {fileID: 0}
   currentScene: 0
   bossKilled: 0
   pauseCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
   canvas: {fileID: 0}
   keyText: {fileID: 0}
 --- !u!4 &10710412

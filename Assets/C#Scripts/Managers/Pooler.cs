@@ -14,7 +14,7 @@ public class Pooler : MonoBehaviour
     {
         pooler = this;
     }
-    private void Start()
+    private void OnEnable()
     {
         pooledObjects = new List<GameObject>();
 

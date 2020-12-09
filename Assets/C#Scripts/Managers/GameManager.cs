@@ -34,26 +34,36 @@ public class GameManager : MonoBehaviour
 
     //private gameState;  //0 - menu, 1 - dialog, 2 - battle, 3 - world, 4 - dungeon 
 
-
+    
 
     private void Awake()
     {
-        cam = Camera.main.gameObject;
+        //cam = Camera.main.gameObject;
         manager = this; //singletone
         DontDestroyOnLoad(this.gameObject);
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
-        player = GameObject.FindWithTag("Player");
+        //player = GameObject.FindWithTag("Player");
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
-
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        
     }
-    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    dialogState = false;
-    //}
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        cam = Camera.main.gameObject;
+        player = GameObject.FindWithTag("Player");
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            Debug.Log("SCENE " + SceneManager.GetActiveScene());
+            gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
+        }
+                    
+        Pooler.pooler.enabled = false;
+        Pooler.pooler.enabled = true;
+    }
 
     void Start() //esto tiene que ir en start porque si no no encuentra el loot, que se asigna en awake no se si estará bien o me dará mas fallos
     {
+        
         cameraPosition = new Vector3(0, 0, -10);
         playerStartPosition = initialPosition;
         //instanciar al personaje
@@ -63,12 +73,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (SceneManager.GetActiveScene().Equals(3))
+            gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
         if (Input.GetKeyDown(KeyCode.K))
         {
             KillPlayer();
             AudioController.audioManager.DeathSpikes();
         }
     }
+    //void OnSceneLoaded()
+    //{
+    //    if (SceneManager.GetActiveScene().Equals(3))
+    //        gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
+    //}
 
 
     #region SceneManagement
@@ -171,21 +189,28 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer()
     {
+
+        //gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
         print("KILL PLAYER");
         player.SetActive(false);
         gameOverCanvas.SetActive(true);
         //activar panel
 
+        player.transform.position = playerStartPosition;
+        player.SetActive(true);
 
+        //player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
+        cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);
 
     }
     public void RestartFromSavePoint()
     {
-        player.transform.position = playerStartPosition;
-        player.SetActive(true);
+        //player.transform.position = playerStartPosition;
+        //player.SetActive(true);
+
         //player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
-        cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);
-        player.GetComponent<PlayerHealth>().ReturnToHalfLife();
+        //cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);
+        //player.GetComponent<PlayerHealth>().ReturnToHalfLife();
         gameOverCanvas.SetActive(false);
     }
 

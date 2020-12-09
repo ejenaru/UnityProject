@@ -26,14 +26,14 @@ public class TriggerToScene : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     //private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("nombre de other: " + other.name);
+        
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(scene);
+            
             switch (scene)
             {
                 case sceneType.instant:
-                    Debug.Log("NEXT SCENE:  " + nextScene);
+                    
                     //Añadido el fade
                     if (!controladorCorrutina)
                     {

@@ -106,10 +106,6 @@ public class PlayerControllerFRONT : MonoBehaviour
             lookDirection.Set(_movH + shootH, shootV);
             lookDirection.Normalize();
 
-
-            Debug.Log("Maths if movH:" + _movH + ", movV" +
-                ", shootH" + shootH + ",ShootV" + shootV + ", lookX " +
-                lookDirection.x + ", lookY" + lookDirection.y + "");
         }
         //transform.Translate(transform.right * _movH * Time.deltaTime * speed);
     }
@@ -146,7 +142,7 @@ public class PlayerControllerFRONT : MonoBehaviour
                 if (_bullet != null) //y tiene la tag bullet
                 {
 
-                    print("bullet !=null");
+                    
                     _bullet.transform.position = transform.position;
                     _bullet.transform.rotation = transform.rotation;
                     _bullet.SetActive(true);

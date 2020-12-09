@@ -10,12 +10,14 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public float speed;
     public float attackRange;
+    public Transform[] patrolPoints;
     public Transform playerPosition;
     public Transform enemyPosition;
     public Rigidbody2D enemyRigid;
 
     private void Start()
     {
+        life = 10;
         playerPosition = GameManager.manager.player.transform;
         enemyPosition = transform;
         enemyRigid = gameObject.GetComponent<Rigidbody2D>();
@@ -28,6 +30,12 @@ public class EnemyController : MonoBehaviour
         {
              enemyRigid.position += (new Vector2((playerPosition.position - enemyPosition.position).normalized.x, 
                  (playerPosition.position - enemyPosition.position).normalized.y) 
+                * speed * Time.deltaTime);
+        }
+        else
+        {
+            enemyRigid.position += (new Vector2((patrolPoints[0].position - enemyPosition.position).normalized.x,
+                 (patrolPoints[0].position - enemyPosition.position).normalized.y)
                 * speed * Time.deltaTime);
         }
     }

@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &90656651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2763,7 +2763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &507840647
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7285,6 +7285,7 @@ MonoBehaviour:
   characterDialog: {fileID: 1877619841}
   textoScriptable: []
   indexDialog: 0
+  interactionEnd: 0
 --- !u!1001 &8560140156409599287
 PrefabInstance:
   m_ObjectHideFlags: 0

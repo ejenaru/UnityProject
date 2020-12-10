@@ -68,7 +68,9 @@ public class ChangeCameraRoom : MonoBehaviour
     IEnumerator ZoomCamera(float from, float to, float time, float steps)
     {
         float f = 0;
-
+        bool boss = this.name.Equals("GIANT") && !GameManager.manager.GetBossKilled();
+        
+        
         while (f <= 1)
         {
             Camera.main.orthographicSize = Mathf.Lerp(from, to, f);
@@ -76,7 +78,15 @@ public class ChangeCameraRoom : MonoBehaviour
             f += 1f / steps;
 
             yield return new WaitForSeconds(time / steps);
+            
         }
+
+        if (boss)
+        {
+            //Empieza el dialogo del boss
+            GameManager.manager.SetGameDialog();
+        }
+        
     }
 
 }

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     //------ESTADO GAME---------
     private bool gamePause = false;
     private bool dialogState = false;
-    public bool bossKilled = false;
+    private bool bossKilled = false;
     public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
     public GameObject canvas;

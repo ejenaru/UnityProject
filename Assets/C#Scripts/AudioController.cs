@@ -22,8 +22,9 @@ public class AudioController : MonoBehaviour
     public AudioSource birds;
     public AudioSource openDialogue;
     public AudioSource shootPlayer;
-    public AudioSource bossHurt;
+    public AudioSource enemyHurt;
     public AudioSource bossDeaht;
+    public AudioSource playerHurt;
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,8 +38,9 @@ public class AudioController : MonoBehaviour
         shootPlayer = UIAudios[4];
         coin = UIAudios[5];
         deathSpikes = UIAudios[6];
-        bossHurt = UIAudios[7];
+        enemyHurt = UIAudios[7];
         bossDeaht = UIAudios[8];
+        playerHurt = UIAudios[9];
         //UIMusics = ... 
 
     }
@@ -79,15 +81,21 @@ public class AudioController : MonoBehaviour
             shootPlayer.Play();
     }
 
-    public void BossHurt()
+    public void EnemyHurt()
     {
-        if (!bossHurt.isPlaying)
-            bossHurt.Play();
+        if (!enemyHurt.isPlaying)
+            enemyHurt.Play();
     }
 
     public void BossDeath()
     {
         if (!bossDeaht.isPlaying)
             bossDeaht.Play();
+    }
+
+    public void PlayerHurt()
+    {
+        if (!playerHurt.isPlaying)
+            playerHurt.Play();
     }
 }

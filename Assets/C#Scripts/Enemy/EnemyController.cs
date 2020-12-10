@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
         {
             
             actualLife -= other.gameObject.GetComponent<Bullet>().GetDamageValue();
+            AudioController.audioManager.EnemyHurt();
         }
     }
 

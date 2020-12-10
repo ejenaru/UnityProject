@@ -42,6 +42,7 @@ public class TriggerInteraction : MonoBehaviour
             {
                 PrefabDialog.prefabDialogScript.takeScriptable(this.interactionEndGame);
                 //Dialogo de fin de juego Y FIN DE JUEGO
+               
             }
             else PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScene);
 

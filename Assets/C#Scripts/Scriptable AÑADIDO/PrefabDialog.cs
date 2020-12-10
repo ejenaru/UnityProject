@@ -34,7 +34,7 @@ public class PrefabDialog : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && nextLineOk)
         {
             indexDialog++;
-            if(indexDialog < textoScriptable.Count)
+            if (indexDialog < textoScriptable.Count)
             {
                 characterDialog.text = textoScriptable[indexDialog];
             }
@@ -42,6 +42,14 @@ public class PrefabDialog : MonoBehaviour
             {
                 GameManager.manager.SetGameDialog();
                 this.gameObject.SetActive(false);
+                if (GameManager.manager.GetBossKilled())
+                {
+                    //Dialogo de fin de juego Y FIN DE JUEGO
+                //    if (this.gameObject.name.Equals("Bed"))
+                //    {
+                //        GameManager.manager
+                //    }
+                }
             }
         }
     }

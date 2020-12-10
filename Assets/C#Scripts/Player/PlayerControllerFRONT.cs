@@ -140,7 +140,7 @@ public class PlayerControllerFRONT : MonoBehaviour
                 direction = new Vector2(shootH, shootV).normalized;
                 if (_bullet != null) //y tiene la tag bullet
                 {
-
+                    AudioController.audioManager.ShootPlayer();
                     
                     _bullet.transform.position = transform.position;
                     _bullet.transform.rotation = transform.rotation;
@@ -157,6 +157,7 @@ public class PlayerControllerFRONT : MonoBehaviour
                 direction = new Vector2(shootH, 0).normalized;
                 if (_bullet != null)
                 {
+                    AudioController.audioManager.ShootPlayer();
                     _bullet.transform.position = transform.position;
                     _bullet.transform.rotation = transform.rotation;
                     _bullet.SetActive(true);

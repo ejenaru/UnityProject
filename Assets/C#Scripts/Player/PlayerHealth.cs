@@ -16,7 +16,11 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actualValue <= 0) GameManager.manager.KillPlayer();
+        if (actualValue <= 0)
+        {
+            GameManager.manager.KillPlayer();
+            AudioController.audioManager.DeathSpikes();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -24,8 +28,9 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag.Equals("Spikes"))
         {
             GameManager.manager.KillPlayer();
+            AudioController.audioManager.DeathSpikes();
         }
-            
+
     }
 
     public void ReturnToHalfLife()
@@ -39,5 +44,6 @@ public class PlayerHealth : MonoBehaviour
     public void DoDamage(int damage)
     {
         actualValue -= damage;
+        AudioController.audioManager.PlayerHurt();
     }
 }

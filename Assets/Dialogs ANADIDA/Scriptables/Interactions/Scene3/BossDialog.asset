@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interaction:
   - "\xA1\xA1\xA1ILUSO!!!"
-  - "\xBFCrees poder enfrentarte a un ser tan poderoso como yo?"
-  - "\xA1Te arrepentiras de haber venido!"
+  - No podras enfrentarte a un ser tan poderoso como yo.
+  - "\xA1\xA1\xA1\xA1Te arrepentiras de haber venido!!!!"
   characterFace: {fileID: 5683539909772271658, guid: 45a0b5517cc87da4b8c21f1b3a96cbd4,
     type: 3}
   characterName: Mago Malicioso

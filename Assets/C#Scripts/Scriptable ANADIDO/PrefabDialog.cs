@@ -49,15 +49,32 @@ public class PrefabDialog : MonoBehaviour
             else
             {
                 GameManager.manager.SetGameDialog();
-                //if(!GameManager.manager.player.GetComponent<PlayerControllerTOP>().playerInBedFinale)
-                this.gameObject.SetActive(false);
+                if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 3)
+                {
+                    if (!GameManager.manager.player.GetComponent<PlayerControllerTOP>().playerInBedFinale)
+                    {
+                        this.gameObject.SetActive(false);
+                    }
+
+                }
+                else
+                {
+                    this.gameObject.SetActive(false);
+                }
+
+
                 if (GameManager.manager.player != null && SceneManager.GetActiveScene().buildIndex == 1)
                 {
                     
                     if (GameManager.manager.player.GetComponent<PlayerControllerTOP>().playerInBedFinale)
                     {
 
-                        GameManager.manager.LoadLevel(4);
+                        //GameManager.manager.LoadLevel(4);
+                        if (!controladorCorrutina)
+                        {
+                            StartCoroutine(FadePanelOut(panelFade.GetComponent<Image>()));
+                        }
+
 
 
                         //controladorCorrutina = false;
@@ -71,10 +88,10 @@ public class PrefabDialog : MonoBehaviour
                         //{
                         //    controladorCorrutina = true;
                         //    nextScene = false;
-                            
+
                         //    GameManager.manager.LoadLevel(4);
                         //}
-                        
+
                     }
                 }
 
@@ -112,7 +129,7 @@ public class PrefabDialog : MonoBehaviour
 
         nextScene = true;
         //Debug.Log("NEXT SCENE (fade): " + nextScene);
-        controladorCorrutina = false;
+        //controladorCorrutina = false;
 ;
         yield return new WaitForSeconds(3);
         GameManager.manager.LoadLevel(4);

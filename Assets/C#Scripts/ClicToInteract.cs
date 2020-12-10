@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClicToInteract : MonoBehaviour
 {
     public GameObject keyNeeded;
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player") && (LootManager.loot.keyNumber < 1) && !GameManager.manager.GetBossKilled())
         {

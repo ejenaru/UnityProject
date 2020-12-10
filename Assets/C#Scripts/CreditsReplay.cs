@@ -19,5 +19,6 @@ public class CreditsReplay : MonoBehaviour
     public void Quit()
     {
         GameManager.manager.Quit();
+
     }
 }

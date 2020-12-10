@@ -5002,7 +5002,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObjects: []
-  objectsToPool: []
+  objectsToPool:
+  - objectToPool: {fileID: 2500597565778906557, guid: 34e49ca10197c4c4293955bec1b7ef63,
+      type: 3}
+    amountToPool: 20
+    shouldExpand: 1
+  - objectToPool: {fileID: 2500597565778906557, guid: 9d9421352e43fa64c9915ed939e44f83,
+      type: 3}
+    amountToPool: 20
+    shouldExpand: 0
 --- !u!114 &1271712172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5030,14 +5038,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   player: {fileID: 0}
-  PlayerPrefab: {fileID: 0}
   playerStartPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
+  roomKilled: {fileID: 0}
   currentScene: 0
   bossKilled: 0
   pauseCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
   canvas: {fileID: 0}
-  keyText: {fileID: 0}
 --- !u!4 &1271712174
 Transform:
   m_ObjectHideFlags: 0

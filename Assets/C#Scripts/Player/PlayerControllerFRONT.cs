@@ -76,10 +76,9 @@ public class PlayerControllerFRONT : MonoBehaviour
     {
         if (other.tag.Equals("Key"))
         {
-            print("TOCANDO MONEDA");
+            
             LootManager.loot.AddKeyNumber();
             other.gameObject.SetActive(false);
-            GameManager.manager.keyText.text = LootManager.loot.keyNumber.ToString();
             AudioController.audioManager.Coin();
         }
 

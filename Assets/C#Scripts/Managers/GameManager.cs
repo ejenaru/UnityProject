@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
     public GameObject canvas;
     GameObject pauseObject = null;
 
-    public Text keyText;
-
     //private gameState;  //0 - menu, 1 - dialog, 2 - battle, 3 - world, 4 - dungeon 
 
     

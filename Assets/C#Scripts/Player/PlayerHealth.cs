@@ -22,11 +22,22 @@ public class PlayerHealth : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag.Equals("Spikes"))
+        {
             GameManager.manager.KillPlayer();
+        }
+            
     }
 
     public void ReturnToHalfLife()
     {
         actualValue = maxValue / 2;
+    }
+    public int GetHealthValue()
+    {
+        return actualValue;
+    }
+    public void DoDamage(int damage)
+    {
+        actualValue -= damage;
     }
 }

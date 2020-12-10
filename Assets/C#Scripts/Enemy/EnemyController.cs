@@ -5,38 +5,44 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //---State---
-
-    public int life;
+    public int maxLife;
+    public int actualLife;
     public int damage;
-    public float speed;
-    public float attackRange;
-    public Transform[] patrolPoints;
-    public Transform playerPosition;
-    public Transform enemyPosition;
-    public Rigidbody2D enemyRigid;
+    public Animator anim;
 
     private void Start()
     {
-        life = 10;
-        playerPosition = GameManager.manager.player.transform;
-        enemyPosition = transform;
-        enemyRigid = gameObject.GetComponent<Rigidbody2D>();
+        maxLife = 30;
+        actualLife = maxLife;
+        damage = 10;
+        anim = gameObject.GetComponent<Animator>();
     }
-
     private void Update()
     {
-        //miro si estoy cerca del player para moverme hacia él.
-        if ((transform.position - playerPosition.position).magnitude < attackRange)
+        if (actualLife <= 0)
         {
-             enemyRigid.position += (new Vector2((playerPosition.position - enemyPosition.position).normalized.x, 
-                 (playerPosition.position - enemyPosition.position).normalized.y) 
-                * speed * Time.deltaTime);
-        }
-        else
-        {
-            enemyRigid.position += (new Vector2((patrolPoints[0].position - enemyPosition.position).normalized.x,
-                 (patrolPoints[0].position - enemyPosition.position).normalized.y)
-                * speed * Time.deltaTime);
+            anim.SetTrigger("Dead");
         }
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            
+            other.gameObject.GetComponent<PlayerHealth>().DoDamage(damage);
+
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            
+            actualLife -= other.gameObject.GetComponent<Bullet>().GetDamageValue();
+        }
+    }
+
+    public void EnemyDeath()
+    {
+        this.gameObject.SetActive(false);
+    }
+
+   
 }

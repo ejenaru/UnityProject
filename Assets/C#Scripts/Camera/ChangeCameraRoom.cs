@@ -62,10 +62,16 @@ public class ChangeCameraRoom : MonoBehaviour
             other.transform.position+= new Vector3(destinationPlayer.x, destinationPlayer.y,0); //Aplica al player un movimiento
             if (this.name.Equals("GIANT"))
             {
+                AudioController.audioManager.UIAudios[0].Stop();
+                AudioController.audioManager.UIAudios[10].Play();
                 StartCoroutine(ZoomCamera(10, 18, 0.3f, 100));
             }
             else if (this.name.Equals("SMALL"))
+            {
+                AudioController.audioManager.UIAudios[10].Stop();
+                AudioController.audioManager.UIAudios[0].Play();
                 StartCoroutine(ZoomCamera(18, 10, 0.3f, 100));
+            }
 
         }   
     }

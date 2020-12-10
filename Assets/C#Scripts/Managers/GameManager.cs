@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            Debug.Log("SCENE " + SceneManager.GetActiveScene());
+            
             gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
         }
                     
@@ -72,13 +72,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-        if (SceneManager.GetActiveScene().Equals(3))
-            gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            KillPlayer();
-            AudioController.audioManager.DeathSpikes();
-        }
+        //if (SceneManager.GetActiveScene().Equals(3))
+        //    gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    KillPlayer();
+        //    AudioController.audioManager.DeathSpikes();
+        //}
     }
     //void OnSceneLoaded()
     //{

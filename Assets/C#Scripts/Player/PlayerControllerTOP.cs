@@ -59,7 +59,7 @@ public class PlayerControllerTOP : MonoBehaviour
             //----Funtions----
             Movement(movH, movV);
             Animation(movH, movV);
-            ShootTop(bullet, shootH, shootV);
+            //ShootTop(bullet, shootH, shootV);
 
         }
 

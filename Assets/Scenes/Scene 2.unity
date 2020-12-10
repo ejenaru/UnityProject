@@ -194,7 +194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10710407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0acdfb2852968947a6d09c0c58ebcb0, type: 3}
   m_Name: 
@@ -205,7 +205,6 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   roomKilled: {fileID: 0}
   currentScene: 0
-  bossKilled: 0
   pauseCanvas: {fileID: 0}
   gameOverCanvas: {fileID: 0}
   canvas: {fileID: 0}
@@ -1513,6 +1512,7 @@ MonoBehaviour:
   characterDialog: {fileID: 255218764}
   textoScriptable: []
   indexDialog: 0
+  interactionEnd: 0
 --- !u!1 &255964641
 GameObject:
   m_ObjectHideFlags: 0
@@ -39920,6 +39920,7 @@ MonoBehaviour:
   bullet: {fileID: 2500597565778906557, guid: 9d9421352e43fa64c9915ed939e44f83, type: 3}
   cadency: 0.5
   force: 10
+  playerInBedFinale: 0
 --- !u!81 &4976861627837491444
 AudioListener:
   m_ObjectHideFlags: 0

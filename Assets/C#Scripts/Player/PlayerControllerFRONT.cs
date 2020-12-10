@@ -58,8 +58,12 @@ public class PlayerControllerFRONT : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Animation(movH);
-        Movement(movH);
+        if (!GameManager.manager.GetDialogState())
+        {
+            Animation(movH);
+            Movement(movH);
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)

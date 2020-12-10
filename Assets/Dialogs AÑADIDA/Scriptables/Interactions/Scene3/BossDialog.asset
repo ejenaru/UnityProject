@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2fdf36025532b4fb3dc96fe4c719cb, type: 3}
+  m_Name: BossDialog
+  m_EditorClassIdentifier: 
+  interaction:
+  - "\xA1\xA1\xA1ILUSO!!!"
+  - "\xBFCrees poder enfrentarte a un ser tan poderoso como yo?"
+  - "\xA1Te arrepentiras de haber venido!"
+  characterFace: {fileID: 5683539909772271658, guid: 45a0b5517cc87da4b8c21f1b3a96cbd4,
+    type: 3}
+  characterName: ???

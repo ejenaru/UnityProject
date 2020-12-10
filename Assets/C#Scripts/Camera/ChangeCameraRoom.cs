@@ -19,8 +19,12 @@ public class ChangeCameraRoom : MonoBehaviour
     //-----Require KEY -----
     public bool keyRequired; //esta va publica para editarla en el editor
     public bool zoomBig;
-    
-    
+
+    //----BossDialog----
+    public GameObject dialogScene;
+    public InteractionScriptable interactionScene;
+
+
     void Start()
     {
         //create 
@@ -69,8 +73,14 @@ public class ChangeCameraRoom : MonoBehaviour
     {
         float f = 0;
         bool boss = this.name.Equals("GIANT") && !GameManager.manager.GetBossKilled();
-        
-        
+
+        if (boss)
+        {
+            //Empieza el dialogo del boss
+            GameManager.manager.SetGameDialog();
+            GameManager.manager.player.GetComponent<PlayerControllerFRONT>().Movement(0);
+        }
+
         while (f <= 1)
         {
             Camera.main.orthographicSize = Mathf.Lerp(from, to, f);
@@ -80,13 +90,15 @@ public class ChangeCameraRoom : MonoBehaviour
             yield return new WaitForSeconds(time / steps);
             
         }
-
         if (boss)
         {
             //Empieza el dialogo del boss
-            GameManager.manager.SetGameDialog();
+            //GameManager.manager.SetGameDialog();
+            dialogScene.SetActive(true);
+            PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScene);
         }
-        
+
+
     }
 
 }

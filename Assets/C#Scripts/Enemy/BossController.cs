@@ -12,7 +12,7 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
-        maxLife = 1000;
+        maxLife = 25;
         actualLife = maxLife;
         damage = 10;
         anim = gameObject.GetComponent<Animator>();

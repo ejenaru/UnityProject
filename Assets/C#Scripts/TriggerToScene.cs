@@ -16,6 +16,8 @@ public class TriggerToScene : MonoBehaviour
     bool controladorCorrutina = false;
     GameObject panelFade;
 
+    public GameObject clicToInteract;
+
 
 
     private void Start()
@@ -23,6 +25,11 @@ public class TriggerToScene : MonoBehaviour
         panelFade = GameObject.FindGameObjectWithTag("Fade");
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        clicToInteract.SetActive(false);
+    }
     private void OnTriggerStay2D(Collider2D other)
     //private void OnTriggerEnter2D(Collider2D other)
     {
@@ -60,6 +67,8 @@ public class TriggerToScene : MonoBehaviour
                             StartCoroutine(FadePanelOut(fadeImage));
                         }
                     }
+                    clicToInteract.SetActive(true);
+
                     //if (nextScene)
                     //{
                     //    print("Action");

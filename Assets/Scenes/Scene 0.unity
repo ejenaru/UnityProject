@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &90656651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3290,7 +3290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &685238859
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5140,7 +5140,6 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   roomKilled: {fileID: 0}
   currentScene: 0
-  bossKilled: 0
   pauseCanvas: {fileID: 0}
   gameOverCanvas: {fileID: 0}
   canvas: {fileID: 0}

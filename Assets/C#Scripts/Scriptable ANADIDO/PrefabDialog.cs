@@ -48,7 +48,7 @@ public class PrefabDialog : MonoBehaviour
                 {
                     if (GameManager.manager.player.GetComponent<PlayerControllerTOP>().playerInBedFinale)
                     {
-                        GameManager.manager.LoadLevel(5);
+                        GameManager.manager.LoadLevel(4);
                     }
                 }
 

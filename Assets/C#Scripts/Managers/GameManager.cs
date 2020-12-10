@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
     public GameObject canvas;
-    GameObject pauseObject = null;
+    GameObject pauseObjectInScene = null;
 
     //private gameState;  //0 - menu, 1 - dialog, 2 - battle, 3 - world, 4 - dungeon 
 
@@ -42,11 +42,13 @@ public class GameManager : MonoBehaviour
         //Voy a guardar aqui el player para usarlo en varias ocasiones, así no tengo que hacer el findgameobject más veces.
         //player = GameObject.FindWithTag("Player");
         SceneManager.sceneLoaded += OnSceneLoaded;
+        //pauseCanvas = GameObject.FindWithTag("PanelPausa");
 
-        
+
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        pauseCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelPausa").gameObject;
         cam = Camera.main.gameObject;
         player = GameObject.FindWithTag("Player");
         if (SceneManager.GetActiveScene().buildIndex == 3)
@@ -71,14 +73,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         //if (SceneManager.GetActiveScene().Equals(3))
         //    gameOverCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelGameOver").gameObject;
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    KillPlayer();
-        //    AudioController.audioManager.DeathSpikes();
-        //}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SetGamePause();
+        }
     }
     //void OnSceneLoaded()
     //{
@@ -124,14 +125,15 @@ public class GameManager : MonoBehaviour
 
     public void SetGamePause()
     {
-        gamePause = !gamePause;
-        //activar canvas de pausa
-        
-        if (pauseObject == null) pauseObject = Instantiate(pauseCanvas, canvas.transform) as GameObject;
-        else
+        if (pauseCanvas != null)
         {
-            Destroy(pauseObject);
+            dialogState = !dialogState;
+            //activar canvas de pausa
+
+            pauseCanvas.SetActive(!pauseCanvas.activeInHierarchy);
+
         }
+
     }
 
     public bool GetGamePause()
@@ -205,7 +207,8 @@ public class GameManager : MonoBehaviour
     {
         player.SetActive(true);
         player.transform.position = playerStartPosition;
-
+        if (!player.GetComponent<PlayerControllerFRONT>().isGravityPositive)
+        player.GetComponent<PlayerControllerFRONT>().ChangeGravity();
 
         //player = Instantiate(PlayerPrefab, playerStartPosition, Quaternion.identity);
         cam.GetComponent<CameraFollowTOP>().SetPosition(roomKilled);

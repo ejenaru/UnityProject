@@ -21,6 +21,7 @@ TagManager:
   - Spikes
   - Fade
   - Enemy
+  - PanelPausa
   layers:
   - Default
   - TransparentFX

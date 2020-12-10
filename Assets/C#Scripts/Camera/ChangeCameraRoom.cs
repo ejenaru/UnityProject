@@ -62,10 +62,10 @@ public class ChangeCameraRoom : MonoBehaviour
             other.transform.position+= new Vector3(destinationPlayer.x, destinationPlayer.y,0); //Aplica al player un movimiento
             if (this.name.Equals("GIANT"))
             {
-                StartCoroutine(ZoomCamera(10, 18, 0.5f, 200));
+                StartCoroutine(ZoomCamera(10, 18, 0.3f, 100));
             }
             else if (this.name.Equals("SMALL"))
-                StartCoroutine(ZoomCamera(18, 10, 0.5f, 200));
+                StartCoroutine(ZoomCamera(18, 10, 0.3f, 100));
 
         }   
     }

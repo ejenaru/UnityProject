@@ -13,4 +13,8 @@ public class ButtonManager : MonoBehaviour
     {
         GameManager.manager.Quit();
     }
+    public void ResumeGame()
+    {
+        GameManager.manager.SetGamePause();
+    }
 }

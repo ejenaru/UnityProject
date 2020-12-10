@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PrefabDialog : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PrefabDialog : MonoBehaviour
     public int indexDialog = 0;
 
     bool nextLineOk = false;
+    public bool interactionEnd = false;
 
     private void Awake()
     {
@@ -42,14 +44,14 @@ public class PrefabDialog : MonoBehaviour
             {
                 GameManager.manager.SetGameDialog();
                 this.gameObject.SetActive(false);
-                if (GameManager.manager.GetBossKilled())
+                if (GameManager.manager.player != null && SceneManager.GetActiveScene().buildIndex == 1)
                 {
-                    //Dialogo de fin de juego Y FIN DE JUEGO
-                //    if (this.gameObject.name.Equals("Bed"))
-                //    {
-                //        GameManager.manager
-                //    }
+                    if (GameManager.manager.player.GetComponent<PlayerControllerTOP>().playerInBedFinale)
+                    {
+                        GameManager.manager.LoadLevel(5);
+                    }
                 }
+
             }
         }
     }

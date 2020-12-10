@@ -25,6 +25,9 @@ public class PlayerControllerTOP : MonoBehaviour
     private Animator anim;
     Vector2 lookDirection = new Vector2(1, 0);
 
+    //Booleanos
+    public bool playerInBedFinale = false;
+
 
     void Awake()
     {
@@ -32,7 +35,13 @@ public class PlayerControllerTOP : MonoBehaviour
         rigidBod = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(GameManager.manager.GetBossKilled() && collision.gameObject.name.Equals("Bed"))
+        {
+            playerInBedFinale = true;
+        }
+    }
     void Update()
     {
         //----INPUTS----

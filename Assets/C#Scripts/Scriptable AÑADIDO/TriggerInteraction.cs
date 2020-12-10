@@ -18,6 +18,7 @@ public class TriggerInteraction : MonoBehaviour
             playerTrigger = true;
             clickToInteract.SetActive(true);
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -27,13 +28,14 @@ public class TriggerInteraction : MonoBehaviour
             playerTrigger = false;
             clickToInteract.SetActive(false);
         }
+
     }
 
     private void Update()
     {
-        if(playerTrigger && Input.GetKeyDown(KeyCode.E) && !dialogScene.activeInHierarchy)
+        if (playerTrigger && Input.GetKeyDown(KeyCode.E) && !dialogScene.activeInHierarchy)
         {
-           
+
             AudioController.audioManager.OpenDialogue();
             GameManager.manager.SetGameDialog();
             clickToInteract.SetActive(false);
@@ -41,15 +43,11 @@ public class TriggerInteraction : MonoBehaviour
             if (GameManager.manager.GetBossKilled())
             {
                 PrefabDialog.prefabDialogScript.takeScriptable(this.interactionEndGame);
-                //Dialogo de fin de juego Y FIN DE JUEGO
-               
             }
             else PrefabDialog.prefabDialogScript.takeScriptable(this.interactionScene);
 
-
-
-
         }
+
     }
 
 }

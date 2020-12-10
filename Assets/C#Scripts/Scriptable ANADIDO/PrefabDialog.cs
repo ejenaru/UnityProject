@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class PrefabDialog : MonoBehaviour
 {
+    // ------Final------
+    bool controladorCorrutina = false;
+    bool nextScene = false;
+    public GameObject panelFade;
+
+
 
     public static PrefabDialog prefabDialogScript;
 
@@ -43,12 +49,49 @@ public class PrefabDialog : MonoBehaviour
             else
             {
                 GameManager.manager.SetGameDialog();
-                this.gameObject.SetActive(false);
+                if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 3)
+                {
+                    if (!GameManager.manager.player.GetComponent<PlayerControllerTOP>().playerInBedFinale)
+                    {
+                        this.gameObject.SetActive(false);
+                    }
+
+                }
+                else
+                {
+                    this.gameObject.SetActive(false);
+                }
+
+
                 if (GameManager.manager.player != null && SceneManager.GetActiveScene().buildIndex == 1)
                 {
+                    
                     if (GameManager.manager.player.GetComponent<PlayerControllerTOP>().playerInBedFinale)
                     {
-                        GameManager.manager.LoadLevel(4);
+
+                        //GameManager.manager.LoadLevel(4);
+                        if (!controladorCorrutina)
+                        {
+                            StartCoroutine(FadePanelOut(panelFade.GetComponent<Image>()));
+                        }
+
+
+
+                        //controladorCorrutina = false;
+                        //if (!controladorCorrutina)
+                        //{
+                        //    Image fadeImage = panelFade.GetComponent<Image>();
+                        //    StartCoroutine(FadePanelOut(fadeImage));
+                        //}
+
+                        //if (nextScene)
+                        //{
+                        //    controladorCorrutina = true;
+                        //    nextScene = false;
+
+                        //    GameManager.manager.LoadLevel(4);
+                        //}
+
                     }
                 }
 
@@ -68,5 +111,28 @@ public class PrefabDialog : MonoBehaviour
         }
 
         nextLineOk = true;
+    }
+
+    IEnumerator FadePanelOut(Image panelFade)
+    {
+        GameManager.manager.SetGameDialog();
+        controladorCorrutina = true;
+        Color textoColorPanel = panelFade.color;
+
+        while (textoColorPanel.a < 1)
+        {
+            textoColorPanel.a += 0.1f;
+            panelFade.color = textoColorPanel;
+            yield return new WaitForSeconds(0.1f);
+        }
+        Debug.Log("Final corrutina");
+
+        nextScene = true;
+        //Debug.Log("NEXT SCENE (fade): " + nextScene);
+        //controladorCorrutina = false;
+;
+        yield return new WaitForSeconds(3);
+        GameManager.manager.LoadLevel(4);
+
     }
 }

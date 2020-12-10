@@ -4307,6 +4307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f941d94f292ea654cadc740b8c41bffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelFade: {fileID: 941442672}
   characterFace: {fileID: 1526201676}
   characterName: {fileID: 711786043}
   characterDialog: {fileID: 2115144641}

@@ -256,7 +256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Irene Diaz Fossaty\n\nIrene Diaz Fossaty\nManuel Varo Villodres\nJorge
+  m_Text: "FIN...\n\n\nIrene Diaz Fossaty\n\nIrene Diaz Fossaty\nManuel Varo Villodres\nJorge
     Chaves Marin\n\nIrene Diaz Fossaty\nJorge Chaves Marin\n\nManuel Varo Villodres\n\nJorge
     Chaves Marin\n\nOur professors from the EOI: \nFran Gomez\nElena Blanes \nAlberto
     Ruiz\nAlejandro Montero\nAlejandro Dominguez"
@@ -622,7 +622,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lead Programmer
+  m_Text: '
+
+
+
+    Lead Programmer
 
 
     Programmers

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Cama
   m_EditorClassIdentifier: 
   interaction:
-  - Ya he dormido suficiente, deberia hacer otra cosa
+  - Ya he dormido suficiente
+  - Jose Antonio me dijo que fuera a verle
   characterFace: {fileID: -517894308114096243, guid: b006cba54609bb04984e2d229a3b3a09,
     type: 3}
-  characterName: Paco
+  characterName: Tu

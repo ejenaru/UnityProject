@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interaction:
   - '"..."'
-  - '"..:"'
   characterFace: {fileID: 7541270888040521581, guid: b228b062502ac9944b0869212143aa9e,
     type: 3}
   characterName: ???

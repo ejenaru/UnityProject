@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     //------ESTADO GAME---------
     private bool gamePause = false;
     private bool dialogState = false;
-    private bool bossKilled = false;
+    public bool bossKilled = false;
     public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
     public GameObject canvas;
@@ -48,7 +48,12 @@ public class GameManager : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        pauseCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelPausa").gameObject;
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 4)
+        {
+
+            pauseCanvas = GameObject.Find("Canvas").gameObject.transform.Find("PanelPausa").gameObject;
+        }
+        
         cam = Camera.main.gameObject;
         player = GameObject.FindWithTag("Player");
         if (SceneManager.GetActiveScene().buildIndex == 3)

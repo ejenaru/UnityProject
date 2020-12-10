@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interaction:
   - '"PELIGRO" '
-  - Cosas misteriosas estan ocurriendo por este camino...
+  - A partir de este punto la gravedad es difusa
+  - Si vas a adentrarte, preparate bien
+  - Es posible que veas enemigos
   characterFace: {fileID: -517894308114096243, guid: b006cba54609bb04984e2d229a3b3a09,
     type: 3}
-  characterName: Conchita
+  characterName: Tablero

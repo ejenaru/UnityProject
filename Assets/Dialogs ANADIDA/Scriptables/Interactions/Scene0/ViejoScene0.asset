@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ViejoScene0
   m_EditorClassIdentifier: 
   interaction:
-  - "\xA1\xA1\xA1Paco!!!"
+  - "\xA1\xA1\xA1Caballero de Verdes Ropajes!!!"
   - Hoy no puedes ir al colegio como todos los dias...
   - ...reunete conmigo en el norte del pueblo
-  - Un ser de otro universo esta alterando nuestra dimension...
-  - "...\xA1\xA1\xA1CORRE!!!"
+  - Un ser de otro universo parece estar alterando nuestra dimension...
+  - "...\xA1\xA1\xA1DATE PRISA!!!"
   characterFace: {fileID: 21300000, guid: d9df9b3f9647d364bb9955af2818c4f1, type: 3}
-  characterName: ???
+  characterName: Jose Antonio

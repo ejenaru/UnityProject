@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interaction:
   - No se que habra pasado.....
-  - Las cacerolas han dejado de girar por el salon de mi casa
+  - 'Las cacerolas han dejado de girar '
   - "Al fin puedo hacer lo que mas me gusta en la vida... \xA1Esculturas de cacerolas!"
+  - Tu deberias ir a dormir, pareces cansado.
   characterFace: {fileID: 7042348869349113295, guid: b006cba54609bb04984e2d229a3b3a09,
     type: 3}
   characterName: Dautra

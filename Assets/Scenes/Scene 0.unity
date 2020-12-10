@@ -759,6 +759,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142340133}
   m_CullTransparentMesh: 0
+--- !u!1 &172655376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172655377}
+  - component: {fileID: 172655380}
+  - component: {fileID: 172655379}
+  - component: {fileID: 172655378}
+  m_Layer: 5
+  m_Name: TITULO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &172655377
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172655376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1747238706}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 9, y: 171}
+  m_SizeDelta: {x: 966.51, y: 127.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &172655378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172655376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8588236, g: 0.7019608, b: 0.25490198, a: 1}
+  m_EffectDistance: {x: -5.8, y: -4.59}
+  m_UseGraphicAlpha: 1
+--- !u!114 &172655379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172655376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.18431373, g: 0.12941177, b: 0.21960786, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: fab4cf31e751e0143a64e306b983e35b, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: FATAL DIMENSIONS
+--- !u!222 &172655380
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172655376}
+  m_CullTransparentMesh: 0
 --- !u!1 &211754820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,7 +3030,8 @@ MonoBehaviour:
   frasesHistoria:
   - El mundo tal y como lo conocemos...
   - "...est\xE1 a punto de desaparecer"
-  - "Nuestra dimensi\xF3n no volver\xE1 a ser lo mismo"
+  - Cuando se juega con la gravedad...
+  - No puede salir nada bueno
   textoHistoria: {fileID: 572106757}
   clickToNextLine: {fileID: 2047354883}
   panelStory: {fileID: 507840646}
@@ -3126,6 +3221,8 @@ GameObject:
   - component: {fileID: 572106759}
   - component: {fileID: 572106758}
   - component: {fileID: 572106757}
+  - component: {fileID: 572106760}
+  - component: {fileID: 572106761}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3146,14 +3243,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: fab4cf31e751e0143a64e306b983e35b, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 1
@@ -3193,6 +3290,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 686.80334, y: 100.00003}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &572106760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572106756}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 8, y: -5}
+  m_UseGraphicAlpha: 1
+--- !u!114 &572106761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572106756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &588690070
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,6 +5267,7 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   roomKilled: {fileID: 0}
   currentScene: 0
+  bossKilled: 0
   pauseCanvas: {fileID: 0}
   gameOverCanvas: {fileID: 0}
   canvas: {fileID: 0}
@@ -6080,7 +6208,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 277.856, y: 96.47649}
+  m_SizeDelta: {x: 339.75, y: 96.47649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1600896663
 MonoBehaviour:
@@ -6412,6 +6540,7 @@ RectTransform:
   - {fileID: 108612564}
   - {fileID: 1600896662}
   - {fileID: 1520249733}
+  - {fileID: 172655377}
   m_Father: {fileID: 90656651}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7186,7 +7315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pulse la tecla "E" para continuar
+  m_Text: Pulsa "E" para continuar
 --- !u!1 &2095424732
 GameObject:
   m_ObjectHideFlags: 0

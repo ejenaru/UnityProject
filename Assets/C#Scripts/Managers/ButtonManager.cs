@@ -9,4 +9,8 @@ public class ButtonManager : MonoBehaviour
     {
         GameManager.manager.RestartFromSavePoint();
     }
+    public void QuitButton()
+    {
+        GameManager.manager.Quit();
+    }
 }
